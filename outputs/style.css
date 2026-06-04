@@ -61,12 +61,25 @@ video {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   color: var(--heading);
   font-size: clamp(1.05rem, 3.8vw, 1.3rem);
   font-weight: 800;
   text-decoration: none;
   line-height: 1.15;
   overflow-wrap: anywhere;
+}
+
+.site-logo {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  border: 3px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(78, 58, 90, 0.18);
 }
 
 .nav-links {
@@ -122,9 +135,14 @@ video {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 42px;
   align-items: center;
+}
+
+.hero-grid .hero-copy {
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .hero-copy,
@@ -214,7 +232,7 @@ p {
 
 .portrait {
   width: min(320px, 72%);
-  margin: 18px auto 0;
+  margin: 0 auto;
   border: 6px solid rgba(183, 228, 215, 0.8);
   border-radius: 50% 40% 45% 38%;
   aspect-ratio: 4 / 5;
@@ -262,6 +280,17 @@ p {
   background: var(--nav-text);
   transform: translateY(-1px);
   outline: none;
+}
+
+.about-photo {
+  width: min(180px, 52vw);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  float: right;
+  margin: 6px 0 18px 22px;
+  border: 5px solid rgba(183, 228, 215, 0.85);
+  border-radius: 30px;
+  box-shadow: 0 14px 34px rgba(78, 58, 90, 0.14);
 }
 
 .activity-list {
@@ -338,11 +367,48 @@ p {
   font-weight: 800;
 }
 
+.podcast-logo {
+  width: min(260px, 80vw);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 6px solid rgba(255, 255, 255, 0.7);
+  border-radius: 28px;
+  box-shadow: 0 16px 40px rgba(78, 58, 90, 0.16);
+}
+
+.podcast-title {
+  margin: 0;
+  color: var(--heading);
+  font-size: clamp(1.6rem, 4vw, 2.35rem);
+}
+
 .podcast p {
   margin: 0;
   color: var(--heading);
   font-size: 1.15rem;
   font-weight: 800;
+}
+
+.podcast-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 2px solid var(--heading);
+  border-radius: 999px;
+  color: var(--heading);
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.podcast-link:hover,
+.podcast-link:focus-visible {
+  background: var(--heading);
+  color: var(--button-text);
+  transform: translateY(-1px);
+  outline: none;
 }
 
 .social-links {
@@ -526,6 +592,13 @@ p {
     width: 100%;
   }
 
+  .about-photo {
+    float: none;
+    display: block;
+    margin: 18px auto 8px;
+    width: min(170px, 70vw);
+  }
+
   .app-badges span {
     width: 100%;
     justify-content: center;
@@ -558,6 +631,11 @@ p {
 
   .brand {
     font-size: 1rem;
+  }
+
+  .site-logo {
+    width: 48px;
+    height: 48px;
   }
 
   .nav-links a {
