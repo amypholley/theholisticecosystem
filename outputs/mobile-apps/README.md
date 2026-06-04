@@ -1,37 +1,38 @@
 # The Holistic Ecosystem Mobile Apps
 
-This folder contains starter native app shells for both mobile platforms:
+This folder contains native app shells for both mobile platforms:
 
 - `android-kotlin`: Android app starter written in Kotlin.
 - `ios-swift`: iOS app starter written in Swift.
 
-Both versions are set up as simple WebView apps. After the website is published,
-replace the placeholder website URL in each app with the live website address.
+Both versions are set up as WebView apps that bundle the website files directly
+inside the app. That means the app can show the same pages, images, colors, and
+links even before the website is published online.
 
 ## Android Kotlin
 
-Open `android-kotlin` in Android Studio.
+Open `android-kotlin` in Android Studio. The website files are bundled at:
 
-Update this line in `android-kotlin/app/src/main/java/com/theholisticecosystem/app/MainActivity.kt`:
-
-```kotlin
-private const val WEBSITE_URL = "https://example.com"
+```text
+android-kotlin/app/src/main/assets/site
 ```
 
-Use your real website URL, such as a GitHub Pages URL.
+Build a release app bundle with Android Studio when you are ready to upload to
+Google Play Console.
 
 ## iOS Swift
 
 Create a new iOS SwiftUI app in Xcode named `TheHolisticEcosystem`, then add
-the Swift files from `ios-swift/TheHolisticEcosystem` to that project.
+the Swift files and the `site` folder from `ios-swift/TheHolisticEcosystem` to
+that project. Make sure the `site` folder is included in the app target.
 
-Update this line in `ios-swift/TheHolisticEcosystem/WebView.swift`:
+The app loads this bundled home page:
 
-```swift
-private let websiteURL = URL(string: "https://example.com")!
+```text
+ios-swift/TheHolisticEcosystem/site/theholisticecosystem.html
 ```
 
-Use your real website URL.
+Archive the app in Xcode when you are ready to upload to App Store Connect.
 
 ## Store Notes
 
@@ -43,3 +44,10 @@ Good next additions would be:
 - Saved favorite health resources.
 - Push notifications for new blog posts.
 - Contact or coaching inquiry form.
+
+When the apps are approved, update the website store buttons in
+`theholisticecosystem.html`:
+
+- Replace the Apple App Store `href="#"` with the Apple App Store URL.
+- Replace the Google Play `href="#"` with the Google Play Store URL.
+- Remove the `unavailable` class and `aria-disabled="true"` from each live link.
