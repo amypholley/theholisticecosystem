@@ -15,7 +15,10 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="home-page">
+    <div class="crisis-link">
+      <a href="https://988lifeline.org/">Feeling down? Chat with 988</a>
+    </div>
     <header class="site-header">
       <nav class="nav-wrap" aria-label="Main navigation">
         <a class="brand" href="theholisticecosystem.html">
@@ -24,26 +27,21 @@
             src="assets/the-holistic-ecosystem-logo.png"
             alt="The Holistic Ecosystem logo"
           />
-          <span>The Holistic Ecosystem</span>
+          <span class="brand-title-main">The Holistic Ecosystem</span>
         </a>
         <ul class="nav-links">
-          <li><a class="active" href="theholisticecosystem.html">Home</a></li>
-          <li><a href="physical.html">Physical</a></li>
-          <li><a href="mental.html">Mental</a></li>
-          <li><a href="emotional.html">Emotional</a></li>
-          <li><a href="spiritual.html">Spiritual</a></li>
-          <li><a href="financial.html">Financial</a></li>
-          <li><a href="intellectual.html">Intellectual</a></li>
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="theecosystem.html">The Ecosystem</a></li>
+          <li><a href="findcommunity.html">Find Community</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section class="hero section">
+      <section id="home" class="hero section">
         <div class="section-inner hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Holistic health coaching</p>
-            <h1>The Holistic Ecosystem</h1>
             <p class="quote">
               "To ensure good health: eat lightly, breathe deeply, live
               moderately, cultivate cheerfulness, and maintain an interest in
@@ -73,7 +71,7 @@
         </div>
       </section>
 
-      <section class="section section-alt">
+      <section class="section">
         <div class="section-inner feature-grid">
           <article class="content-block">
             <p class="eyebrow">About me</p>
@@ -151,19 +149,9 @@
             <a class="button-link" href="#">Add blog link</a>
           </article>
 
-          <article class="content-block">
-            <p class="eyebrow">Mobile app</p>
-            <h2>iOS and Android App</h2>
-            <p>
-              Available on iOS and Android.
-            </p>
-            <div class="app-badges" aria-label="Mobile app platforms">
-              <span>iOS Swift</span>
-              <span>Android Kotlin</span>
-            </div>
-          </article>
         </div>
       </section>
+
     </main>
 
     <footer class="site-footer">
