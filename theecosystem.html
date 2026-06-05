@@ -197,6 +197,25 @@
       const tooltipAction = tooltip.querySelector("span");
       const hotspots = document.querySelectorAll(".wheel-hotspot");
 
+      const positionTooltip = (hotspot) => {
+        const wheelRect = wheel.getBoundingClientRect();
+        const hotspotRect = hotspot.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const hotspotCenterX = hotspotRect.left + hotspotRect.width / 2 - wheelRect.left;
+        const hotspotCenterY = hotspotRect.top + hotspotRect.height / 2 - wheelRect.top;
+        const placeRight = hotspotCenterX < wheelRect.width * 0.55;
+        const desiredX = placeRight
+          ? hotspotCenterX + hotspotRect.width * 0.45
+          : hotspotCenterX - tooltipRect.width - hotspotRect.width * 0.45;
+        const desiredY = hotspotCenterY - tooltipRect.height / 2;
+        const padding = 16;
+        const x = Math.min(Math.max(desiredX, padding), wheelRect.width - tooltipRect.width - padding);
+        const y = Math.min(Math.max(desiredY, padding), wheelRect.height - tooltipRect.height - padding);
+
+        tooltip.style.left = `${x}px`;
+        tooltip.style.top = `${y}px`;
+      };
+
       const showTooltip = (hotspot) => {
         tooltipTitle.textContent = hotspot.dataset.title;
         tooltipPreview.textContent = hotspot.dataset.preview;
@@ -204,6 +223,7 @@
         tooltip.classList.add("visible");
         wheel.classList.add("has-active");
         hotspots.forEach((item) => item.classList.toggle("active", item === hotspot));
+        requestAnimationFrame(() => positionTooltip(hotspot));
       };
 
       const hideTooltip = () => {
@@ -215,9 +235,19 @@
       hotspots.forEach((hotspot) => {
         hotspot.addEventListener("mouseenter", () => showTooltip(hotspot));
         hotspot.addEventListener("focus", () => showTooltip(hotspot));
+        hotspot.addEventListener("click", (event) => {
+          if (window.matchMedia("(hover: none)").matches && !hotspot.classList.contains("active")) {
+            event.preventDefault();
+            showTooltip(hotspot);
+          }
+        });
       });
 
       wheel.addEventListener("mouseleave", hideTooltip);
+      window.addEventListener("resize", () => {
+        const active = document.querySelector(".wheel-hotspot.active");
+        if (active) positionTooltip(active);
+      });
     </script>
   </body>
 </html>

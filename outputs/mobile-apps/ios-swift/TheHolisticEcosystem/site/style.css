@@ -456,7 +456,7 @@ p {
 
 .wellness-wheel {
   position: relative;
-  width: min(1460px, 96vw);
+  width: min(1260px, 92vw);
   margin: 42px auto 0;
   overflow: hidden;
   border: 8px solid rgba(255, 255, 255, 0.78);
@@ -477,7 +477,7 @@ p {
 .wheel-hotspot {
   position: absolute;
   z-index: 2;
-  width: 19%;
+  width: 18%;
   aspect-ratio: 1 / 1;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -608,13 +608,13 @@ p {
   pointer-events: none;
   transform: translateY(8px) scale(0.98);
   transition: opacity 220ms ease, transform 220ms ease;
-  left: 33%;
-  bottom: 4%;
+  left: 50%;
+  top: 50%;
 }
 
 .wheel-tooltip.visible {
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: none;
   transform: translateY(0) scale(1);
 }
 
@@ -647,6 +647,58 @@ p {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 24px;
+}
+
+.site-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.site-form label {
+  color: var(--heading);
+  font-weight: 800;
+}
+
+.site-form input,
+.site-form select,
+.site-form textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--soft-border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--body);
+  font: inherit;
+  padding: 10px 14px;
+}
+
+.site-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.site-form input:focus,
+.site-form select:focus,
+.site-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(123, 170, 139, 0.18);
+  outline: none;
+}
+
+.form-button {
+  border: 0;
+  cursor: pointer;
+  justify-self: start;
+}
+
+.form-disclaimer {
+  padding: 16px 18px;
+  border-left: 6px solid var(--accent);
+  border-radius: 16px;
+  background: rgba(123, 170, 139, 0.13);
+  color: var(--nav-text);
+  font-weight: 800;
 }
 
 .about-photo {
@@ -1028,7 +1080,6 @@ p {
 
   .wheel-tooltip {
     left: 6%;
-    right: auto;
     top: auto;
     bottom: 4%;
     width: 88%;
