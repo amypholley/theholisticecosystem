@@ -10,7 +10,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 
-private const val HOME_PAGE = "file:///android_asset/site/theholisticecosystem.html"
+private const val HOME_PAGE = "file:///android_asset/site/index.html"
 
 class MainActivity : Activity() {
     private lateinit var webView: WebView

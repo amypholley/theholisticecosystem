@@ -29,7 +29,7 @@ that project. Make sure the `site` folder is included in the app target.
 The app loads this bundled home page:
 
 ```text
-ios-swift/TheHolisticEcosystem/site/theholisticecosystem.html
+ios-swift/TheHolisticEcosystem/site/index.html
 ```
 
 Archive the app in Xcode when you are ready to upload to App Store Connect.
@@ -46,7 +46,7 @@ Good next additions would be:
 - Contact or coaching inquiry form.
 
 When the apps are approved, update the website store buttons in
-`theholisticecosystem.html`:
+`index.html`:
 
 - Replace the Apple App Store `href="#"` with the Apple App Store URL.
 - Replace the Google Play `href="#"` with the Google Play Store URL.

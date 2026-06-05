@@ -9,7 +9,7 @@ struct WebView: UIViewRepresentable {
         webView.allowsBackForwardNavigationGestures = true
 
         if let homeURL = Bundle.main.url(
-            forResource: "theholisticecosystem",
+            forResource: "index",
             withExtension: "html",
             subdirectory: "site"
         ) {
