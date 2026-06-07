@@ -17,6 +17,12 @@
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  min-width: 0;
+}
+
 html {
   scroll-behavior: smooth;
   text-size-adjust: 100%;
@@ -28,7 +34,7 @@ body {
   background: var(--background);
   color: var(--body);
   font-family: "Nunito", "Trebuchet MS", Arial, sans-serif;
-  font-size: clamp(16px, 1.5vw, 18px);
+  font-size: clamp(16px, 1.25vw, 18px);
   line-height: 1.7;
   overflow-x: hidden;
 }
@@ -48,9 +54,10 @@ video {
 
 .crisis-link a {
   color: var(--button-text);
-  font-size: 1.1rem;
+  font-size: clamp(0.96rem, 2.4vw, 1.1rem);
   font-weight: 800;
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 .crisis-link a:hover,
@@ -86,12 +93,14 @@ video {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  min-width: 220px;
+  max-width: min(100%, 460px);
   color: var(--heading);
-  font-size: clamp(1.05rem, 3.8vw, 1.3rem);
+  font-size: clamp(1rem, 2.3vw, 1.25rem);
   font-weight: 800;
   text-decoration: none;
   line-height: 1.15;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
 }
 
 .site-logo {
@@ -105,8 +114,8 @@ video {
 }
 
 .home-page .brand-title-main {
-  font-size: clamp(1.55rem, 4.8vw, 2.55rem);
-  line-height: 1.05;
+  font-size: clamp(1.25rem, 3.1vw, 2.05rem);
+  line-height: 1.08;
 }
 
 .nav-links {
@@ -114,7 +123,7 @@ video {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 8px;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -123,13 +132,19 @@ video {
 .nav-links a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 42px;
-  padding: 8px 12px;
+  max-width: 100%;
+  padding: 8px 11px;
   border-radius: 999px;
   color: var(--nav-text);
-  font-size: 0.95rem;
+  font-size: clamp(0.86rem, 1.35vw, 0.95rem);
   font-weight: 800;
+  line-height: 1.15;
   text-decoration: none;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
@@ -206,18 +221,20 @@ main > .section:last-child {
 .eyebrow {
   margin: 0 0 10px;
   color: var(--nav-text);
-  font-size: 0.82rem;
+  font-size: clamp(0.76rem, 1.3vw, 0.84rem);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 /* Breadcrumbs: add this nav near the top of future pages and update the final aria-current item for the current page. */
 .breadcrumbs {
   margin: 0 0 22px;
   color: var(--nav-text);
-  font-size: 0.94rem;
+  font-size: clamp(0.82rem, 1.5vw, 0.94rem);
   font-weight: 800;
+  line-height: 1.35;
 }
 
 .breadcrumbs ol {
@@ -248,6 +265,7 @@ main > .section:last-child {
   text-decoration-color: var(--accent);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
+  overflow-wrap: anywhere;
 }
 
 .breadcrumbs a:hover,
@@ -268,35 +286,37 @@ h3 {
   line-height: 1.12;
   letter-spacing: 0;
   overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.25rem, 10vw, 5.4rem);
-  max-width: 760px;
+  font-size: clamp(2rem, 6.4vw, 4.4rem);
+  max-width: 980px;
 }
 
 h2 {
-  font-size: clamp(1.75rem, 7vw, 3.4rem);
+  font-size: clamp(1.55rem, 4.4vw, 2.85rem);
 }
 
 h3 {
   margin-top: 34px;
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.85rem);
 }
 
 p {
   margin: 18px 0 0;
   overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .quote {
   margin: 24px 0 28px;
-  padding: 22px 24px;
+  padding: clamp(16px, 3vw, 22px) clamp(18px, 3.4vw, 24px);
   border-left: 8px solid var(--accent);
   border-radius: 20px;
   background: rgba(123, 170, 139, 0.13);
   color: var(--nav-text);
-  font-size: 1.08rem;
+  font-size: clamp(0.98rem, 1.7vw, 1.08rem);
   font-weight: 700;
 }
 
@@ -349,32 +369,51 @@ p {
 .sections-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: clamp(18px, 2.3vw, 24px);
   width: 100%;
   max-width: 1200px;
   margin: 40px auto 0;
+  align-items: stretch;
 }
 
 .section-card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
   min-width: 0;
-  padding: 24px;
+  min-height: clamp(220px, 24vw, 285px);
+  padding: clamp(18px, 2.6vw, 26px);
   border: 1px solid var(--soft-border);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 4px 12px rgba(78, 58, 90, 0.08);
+  text-align: center;
+  overflow: hidden;
+}
+
+.section-card > * {
+  max-width: 100%;
 }
 
 .section-card h2,
 .section-card h3 {
+  width: 100%;
   margin: 0 0 12px;
-  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  font-size: clamp(1.18rem, 1.95vw, 1.65rem);
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+  hyphens: auto;
 }
 
 .section-card p {
+  width: 100%;
   margin-top: 0;
+  font-size: clamp(0.96rem, 1.35vw, 1.04rem);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .card-link {
@@ -392,6 +431,7 @@ p {
 }
 
 .section-card .button-link {
+  width: 100%;
   margin-top: auto;
 }
 
@@ -415,7 +455,7 @@ p {
 }
 
 .movement-summary h2 {
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.85rem);
 }
 
 .movement-summary ul {
@@ -443,7 +483,7 @@ p {
 }
 
 .recovery-summary h2 {
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.85rem);
 }
 
 .recovery-summary ul {
@@ -523,7 +563,7 @@ p {
 }
 
 .coping-category h2 {
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.85rem);
 }
 
 .site-search {
@@ -551,6 +591,7 @@ p {
   background: rgba(255, 255, 255, 0.86);
   color: var(--body);
   font: inherit;
+  font-size: clamp(0.92rem, 1.4vw, 1rem);
 }
 
 .site-search button {
@@ -562,7 +603,10 @@ p {
   color: var(--button-text);
   cursor: pointer;
   font: inherit;
+  font-size: clamp(0.9rem, 1.35vw, 1rem);
   font-weight: 800;
+  line-height: 1.15;
+  white-space: normal;
 }
 
 .site-search input:focus,
@@ -585,7 +629,7 @@ p {
 }
 
 .search-result h2 {
-  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  font-size: clamp(1.2rem, 2.05vw, 1.75rem);
 }
 
 .search-result a {
@@ -612,13 +656,17 @@ p {
   max-width: 100%;
   min-height: 48px;
   margin-top: 24px;
-  padding: 10px 20px;
+  padding: 10px clamp(14px, 2vw, 20px);
   border-radius: 999px;
   background: var(--button);
   color: var(--button-text);
+  font-size: clamp(0.9rem, 1.35vw, 1rem);
   font-weight: 800;
+  line-height: 1.18;
   text-decoration: none;
   text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
   transition: background 180ms ease, transform 180ms ease;
 }
 
@@ -1290,14 +1338,19 @@ p {
 .podcast-title {
   margin: 0;
   color: var(--heading);
-  font-size: clamp(1.6rem, 4vw, 2.35rem);
+  font-size: clamp(1.45rem, 3.6vw, 2.2rem);
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .podcast p {
   margin: 0;
   color: var(--heading);
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 2vw, 1.12rem);
   font-weight: 800;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .podcast-link {
@@ -1310,7 +1363,12 @@ p {
   border-radius: 999px;
   color: var(--heading);
   font-weight: 800;
+  font-size: clamp(0.9rem, 1.35vw, 1rem);
+  line-height: 1.15;
   text-decoration: none;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
@@ -1341,8 +1399,12 @@ p {
   background: var(--button);
   color: var(--button-text);
   font-weight: 800;
+  font-size: clamp(0.9rem, 1.35vw, 1rem);
+  line-height: 1.15;
   text-decoration: none;
   text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
   transition: background 180ms ease, transform 180ms ease;
 }
 
@@ -1418,6 +1480,7 @@ p {
 
   .brand {
     width: 100%;
+    min-width: 0;
   }
 
   .nav-links {
@@ -1486,6 +1549,20 @@ p {
   .sections-grid {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+
+  .section-card {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .section-card h2,
+  .section-card h3 {
+    font-size: clamp(1.12rem, 6vw, 1.42rem);
+  }
+
+  .section-card .button-link {
+    margin-top: 18px;
   }
 
   .az-list {
