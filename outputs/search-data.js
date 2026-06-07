@@ -15,6 +15,6 @@ window.SEARCH_INDEX = [
   { title: "Environmental Wellness", url: "environmental.html", description: "Environmental wellness resources for home environment, organization, nature, sustainability, and supportive spaces.", keywords: "environmental home organization nature sustainability spaces" },
   { title: "Purpose Wellness", url: "purpose.html", description: "Purpose wellness resources for meaning, direction, goals, values, discipline, legacy, and intentional living.", keywords: "purpose meaning goals values discipline legacy intentional living" },
   { title: "Blog", url: "index.html#blog", description: "Healthy Minds, Healthy Bodies Blog section for future articles and wellness resources.", keywords: "blog healthy minds healthy bodies articles resources" },
-  { title: "Podcast", url: "index.html#podcast", description: "Living with Illness podcast links for Apple Podcasts and Spotify.", keywords: "podcast living with illness apple spotify support educate advocate" },
+  { title: "Podcast", url: "index.html#podcast", description: "Living and Coping with Illness podcast links for Apple Podcasts and Spotify.", keywords: "podcast Living and Coping with Illness apple spotify support educate advocate" },
   { title: "Contact", url: "contact.html", description: "Contact The Holistic Ecosystem for questions, podcast guest inquiries, collaboration, blog questions, and technical issues.", keywords: "contact email message form collaboration podcast guest inquiry" }
 ];

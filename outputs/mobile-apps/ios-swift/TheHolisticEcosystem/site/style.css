@@ -75,9 +75,11 @@ video {
   margin: 0 auto;
   min-height: 82px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  padding: 12px 0 14px;
 }
 
 .brand {
@@ -475,6 +477,15 @@ p {
   align-items: center;
   gap: 8px;
   min-width: min(280px, 100%);
+}
+
+.header-search {
+  flex: 0 0 100%;
+  width: min(100%, 400px);
+  max-width: 400px;
+  min-width: 0;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .site-search input {
@@ -1326,7 +1337,8 @@ p {
   }
 
   .header-search {
-    width: min(100%, 520px);
+    width: min(100%, 400px);
+    max-width: 400px;
   }
 
   .hero-grid {
