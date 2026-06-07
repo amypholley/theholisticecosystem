@@ -64,6 +64,11 @@
           <li><a href="theecosystem.html">The Ecosystem</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <form class="site-search header-search" action="search.html" method="get" role="search">
+          <label class="sr-only" for="site-search-header">Search the site</label>
+          <input id="site-search-header" type="search" name="q" placeholder="Search" />
+          <button type="submit">Search</button>
+        </form>
       </nav>
     </header>
 
@@ -82,7 +87,7 @@
 
       <section class="section home-about-section">
         <div class="section-inner feature-grid">
-          <article class="content-block">
+          <article class="content-block" id="blog">
             <p class="eyebrow">About me</p>
             <h2>About Me</h2>
             <img
@@ -149,7 +154,7 @@
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <div class="podcast">
+        <div class="podcast" id="podcast">
           <img
             class="podcast-logo"
             src="assets/living-with-illness-logo.png"
