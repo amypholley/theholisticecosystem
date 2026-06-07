@@ -463,7 +463,8 @@ p {
 
 .mental-card,
 .growth-card,
-.support-card {
+.support-card,
+.emotional-card {
   transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -472,7 +473,9 @@ p {
 .growth-card:hover,
 .growth-card:focus-within,
 .support-card:hover,
-.support-card:focus-within {
+.support-card:focus-within,
+.emotional-card:hover,
+.emotional-card:focus-within {
   box-shadow: 0 12px 24px rgba(78, 58, 90, 0.12);
   transform: translateY(-2px);
 }
