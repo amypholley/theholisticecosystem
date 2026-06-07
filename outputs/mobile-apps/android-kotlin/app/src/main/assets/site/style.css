@@ -212,6 +212,54 @@ main > .section:last-child {
   text-transform: uppercase;
 }
 
+/* Breadcrumbs: add this nav near the top of future pages and update the final aria-current item for the current page. */
+.breadcrumbs {
+  margin: 0 0 22px;
+  color: var(--nav-text);
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.breadcrumbs li + li::before {
+  content: ">";
+  margin-right: 6px;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.breadcrumbs a {
+  color: var(--nav-text);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
+  color: var(--heading);
+  outline: none;
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: var(--heading);
+}
+
 h1,
 h2,
 h3 {
