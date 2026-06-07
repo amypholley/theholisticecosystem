@@ -435,6 +435,90 @@ p {
   margin-top: auto;
 }
 
+.protein-page {
+  max-width: 1180px;
+}
+
+.resource-section {
+  margin-top: clamp(32px, 5vw, 52px);
+}
+
+.resource-section h2 {
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+}
+
+.resource-section h3 {
+  margin-top: clamp(28px, 4vw, 42px);
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+}
+
+.resource-note {
+  padding: 14px 16px;
+  border-left: 6px solid var(--accent);
+  border-radius: 14px;
+  background: rgba(123, 170, 139, 0.13);
+  color: var(--nav-text);
+  font-weight: 800;
+}
+
+.protein-food-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(12px, 1.8vw, 18px);
+  margin-top: 18px;
+}
+
+.protein-food-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 150px;
+  padding: clamp(14px, 1.8vw, 18px);
+  border: 1px solid var(--soft-border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 4px 12px rgba(78, 58, 90, 0.08);
+  text-align: center;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.protein-food-card:hover,
+.protein-food-card:focus-within {
+  box-shadow: 0 12px 24px rgba(78, 58, 90, 0.12);
+  transform: translateY(-2px);
+}
+
+.protein-food-card h4 {
+  margin: 0;
+  color: var(--heading);
+  font-size: clamp(1rem, 1.45vw, 1.16rem);
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.protein-food-card p {
+  margin: 10px 0 12px;
+  font-size: clamp(0.88rem, 1.15vw, 0.96rem);
+  line-height: 1.35;
+}
+
+.protein-food-card strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(35, 79, 61, 0.1);
+  color: var(--heading);
+  font-size: clamp(0.92rem, 1.25vw, 1rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
 .nutrition-card {
   transition: box-shadow 180ms ease, transform 180ms ease;
 }
@@ -1437,6 +1521,10 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .protein-food-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .az-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1540,6 +1628,10 @@ p {
     white-space: normal;
   }
 
+  .protein-food-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .social-links {
     width: 100%;
   }
@@ -1563,6 +1655,14 @@ p {
 
   .section-card .button-link {
     margin-top: 18px;
+  }
+
+  .protein-food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .protein-food-card {
+    min-height: auto;
   }
 
   .az-list {
