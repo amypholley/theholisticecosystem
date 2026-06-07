@@ -331,6 +331,72 @@ p {
   margin-top: auto;
 }
 
+.nutrition-card {
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.nutrition-card:hover,
+.nutrition-card:focus-within {
+  box-shadow: 0 12px 24px rgba(78, 58, 90, 0.12);
+  transform: translateY(-2px);
+}
+
+.movement-summary {
+  margin-top: 28px;
+  padding: 22px 24px;
+  border-left: 8px solid var(--secondary);
+  border-radius: 20px;
+  background: rgba(127, 157, 184, 0.16);
+  color: var(--body);
+}
+
+.movement-summary h2 {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.movement-summary ul {
+  margin: 8px 0 0;
+  padding-left: 24px;
+}
+
+.movement-card {
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.movement-card:hover,
+.movement-card:focus-within {
+  box-shadow: 0 12px 24px rgba(78, 58, 90, 0.12);
+  transform: translateY(-2px);
+}
+
+.recovery-summary {
+  margin-top: 28px;
+  padding: 22px 24px;
+  border-left: 8px solid var(--accent);
+  border-radius: 20px;
+  background: rgba(123, 170, 139, 0.14);
+  color: var(--body);
+}
+
+.recovery-summary h2 {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.recovery-summary ul {
+  margin: 8px 0 0;
+  padding-left: 24px;
+}
+
+.recovery-card {
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.recovery-card:hover,
+.recovery-card:focus-within {
+  box-shadow: 0 12px 24px rgba(78, 58, 90, 0.12);
+  transform: translateY(-2px);
+}
+
 .button-link {
   display: inline-flex;
   align-items: center;
@@ -371,6 +437,15 @@ p {
 
 .ecosystem-page .ecosystem-intro {
   padding: clamp(24px, 3vw, 44px);
+}
+
+.ecosystem-instruction {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: var(--nav-text);
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-weight: 800;
+  text-align: center;
 }
 
 .ecosystem-wheel {
