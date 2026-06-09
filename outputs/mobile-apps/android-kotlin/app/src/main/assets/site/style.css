@@ -541,6 +541,75 @@ p {
   justify-content: center;
 }
 
+.affiliate-disclaimer {
+  margin-top: 32px;
+  padding: clamp(16px, 2.4vw, 22px);
+  border: 1px solid rgba(123, 170, 139, 0.28);
+  border-radius: 18px;
+  background: rgba(183, 228, 215, 0.26);
+  color: var(--nav-text);
+  font-weight: 800;
+}
+
+.affiliate-product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 18px);
+  margin-top: 24px;
+}
+
+.affiliate-product-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--soft-border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 4px 12px rgba(78, 58, 90, 0.08);
+  text-align: center;
+  transition: box-shadow 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.affiliate-product-card:hover,
+.affiliate-product-card:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 12px 24px rgba(78, 58, 90, 0.12);
+  transform: translateY(-2px);
+}
+
+.affiliate-product-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: rgba(183, 228, 215, 0.22);
+}
+
+.affiliate-product-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(14px, 1.7vw, 18px);
+}
+
+.affiliate-product-card h3 {
+  margin: 0;
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 1.18;
+}
+
+.affiliate-product-card p {
+  margin: 12px 0 16px;
+  font-size: clamp(0.9rem, 1.12vw, 0.96rem);
+  line-height: 1.42;
+}
+
+.affiliate-product-card .button-link {
+  width: 100%;
+  margin-top: auto;
+}
+
 .nutrient-card {
   align-items: flex-start;
   text-align: left;
@@ -1618,6 +1687,10 @@ p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .affiliate-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .az-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1726,6 +1799,10 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .affiliate-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .social-links {
     width: 100%;
   }
@@ -1753,6 +1830,10 @@ p {
 
   .protein-food-grid,
   .resource-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .affiliate-product-grid {
     grid-template-columns: 1fr;
   }
 

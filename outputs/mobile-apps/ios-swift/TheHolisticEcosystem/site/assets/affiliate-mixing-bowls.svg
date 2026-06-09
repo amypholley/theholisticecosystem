@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Mixing bowl set</title>
+  <desc id="desc">Simple illustration of nested mixing bowls.</desc>
+  <rect width="640" height="480" fill="#F5F1F8"/>
+  <circle cx="320" cy="240" r="170" fill="#B7E4D7" opacity="0.55"/>
+  <path d="M165 220h310c-18 90-72 140-155 140s-137-50-155-140z" fill="#FFFFFF" stroke="#234F3D" stroke-width="12"/>
+  <path d="M205 235h230c-16 56-56 86-115 86s-99-30-115-86z" fill="#7F9DB8" opacity="0.65"/>
+  <ellipse cx="320" cy="220" rx="160" ry="38" fill="#FFFFFF" stroke="#234F3D" stroke-width="12"/>
+  <ellipse cx="320" cy="220" rx="108" ry="20" fill="#F5F1F8"/>
+</svg>
