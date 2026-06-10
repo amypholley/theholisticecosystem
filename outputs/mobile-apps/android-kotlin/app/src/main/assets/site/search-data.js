@@ -1,4 +1,4 @@
-window.SEARCH_INDEX = [
+﻿window.SEARCH_INDEX = [
   { title: "Home", url: "index.html#home", description: "Welcome to The Holistic Ecosystem, a resource for mind, body, lifestyle, wellness, blog, and podcast content.", keywords: "home holistic ecosystem about me healthy minds healthy bodies blog podcast" },
   { title: "Physical Wellness", url: "physical.html", description: "Physical wellness resources for nutrition, movement, sleep, recovery, and sustainable habits.", keywords: "physical health wellness nutrition movement sleep recovery hydration exercise" },
   { title: "Heart Health", url: "heart-health.html", description: "Cardiovascular wellness, blood pressure, cholesterol, movement, nutrition, and heart-supportive habits.", keywords: "body health heart cardiovascular blood pressure cholesterol cardiac physical" },
@@ -28,7 +28,7 @@ window.SEARCH_INDEX = [
   { title: "Emotional Intelligence", url: "emotional-intelligence.html", description: "Emotional intelligence support for emotional awareness, regulation, triggers, patterns, mindfulness, and self-compassion.", keywords: "emotional intelligence awareness regulation triggers patterns mindfulness self compassion" },
   { title: "Emotional Expression", url: "emotional-expression.html", description: "Healthy emotional expression through journaling, writing, art, music, creativity, communication, and processing emotions.", keywords: "emotional expression journaling writing art music creativity communication processing emotions" },
   { title: "Joy, Hobbies & Fulfillment", url: "joy-hobbies-fulfillment.html", description: "Joy, hobbies, play, gratitude, adventure, personal interests, meaningful activities, and life balance.", keywords: "joy hobbies fulfillment play gratitude adventure personal interests meaningful activities life balance" },
-  { title: "Baking", url: "baking.html", description: "Baking resources and beginner-friendly tools for creative emotional wellness and self-expression.", keywords: "baking hobbies joy fulfillment self expression affiliate tools mixing bowls baking sheets measuring cups spatulas cooling rack" },
+  { title: "Baking", url: "baking-hobbies.html", description: "Baking resources and beginner-friendly tools for creative emotional wellness and self-expression.", keywords: "baking hobbies joy fulfillment self expression affiliate tools mixing bowls baking sheets measuring cups spatulas cooling rack" },
   { title: "Relationship Wellness", url: "relationships.html", description: "Relationship wellness resources for communication, boundaries, connection, community, and support.", keywords: "relationships social community connection communication boundaries support" },
   { title: "Spiritual Wellness", url: "spiritual.html", description: "Spiritual wellness resources for faith, hope, purpose, prayer, values, and spiritual growth.", keywords: "spiritual faith hope purpose prayer values" },
   { title: "Financial Wellness", url: "financial.html", description: "Financial wellness resources for budgeting, saving, credit, debt, income growth, and confidence.", keywords: "financial budgeting saving credit debt income money" },
@@ -41,7 +41,7 @@ window.SEARCH_INDEX = [
   { title: "Skill Building", url: "skill-building.html", description: "Intellectual wellness topic for developing practical, creative, and personal skills.", keywords: "skill building intellectual creativity confidence" },
   { title: "Career Growth", url: "career-growth.html", description: "Intellectual wellness topic for planning, learning, and future opportunities.", keywords: "career growth intellectual work opportunities planning" },
   { title: "Home Environment", url: "home-environment.html", description: "Environmental wellness topic for calmer, more organized, functional spaces.", keywords: "home environment organization spaces environmental" },
-  { title: "Nature", url: "nature.html", description: "Environmental wellness topic for outdoor time, light, plants, and natural rhythms.", keywords: "nature environmental outdoors light plants" },
+  { title: "Nature", url: "nature-wellness.html", description: "Environmental wellness topic for outdoor time, light, plants, and natural rhythms.", keywords: "nature environmental outdoors light plants" },
   { title: "Sustainability", url: "sustainability.html", description: "Environmental wellness topic for simple choices that care for your space and the world.", keywords: "sustainability environmental choices nature home" },
   { title: "Communication", url: "communication.html", description: "Relationship wellness topic for clearer conversations, listening, repair, and expressing needs.", keywords: "communication relationships listening repair needs" },
   { title: "Boundaries", url: "boundaries.html", description: "Relationship wellness topic for protecting energy, time, privacy, and emotional safety.", keywords: "boundaries relationships safety privacy energy" },
@@ -58,7 +58,13 @@ window.SEARCH_INDEX = [
   { title: "Meaning", url: "meaning.html", description: "Purpose wellness topic for what matters, motivation, and what makes life feel worthwhile.", keywords: "meaning purpose motivation worthwhile" },
   { title: "Goals", url: "goals.html", description: "Purpose wellness topic for realistic steps, routines, and intentional progress.", keywords: "goals purpose routines progress" },
   { title: "Legacy", url: "legacy.html", description: "Purpose wellness topic for impact, values, and contributions over time.", keywords: "legacy purpose impact values contribution" },
+  { title: "Friends & Social Life", url: "friends-social-life.html", description: "Relationship wellness topic for friendship, social support, community, social confidence, and maintaining connection.", keywords: "friends social life friendship community loneliness social confidence support" },
+  { title: "Financial Resources", url: "financial-resources.html", description: "Financial education resources, trusted experts, podcasts, books, worksheets, trackers, and tools.", keywords: "financial resources podcasts books worksheets budgeting saving debt credit tools" },
   { title: "Blog", url: "index.html#blog", description: "Healthy Minds, Healthy Bodies Blog section for future articles and wellness resources.", keywords: "blog healthy minds healthy bodies articles resources" },
   { title: "Podcast", url: "index.html#podcast", description: "Living and Coping with Illness podcast links for Apple Podcasts and Spotify.", keywords: "podcast Living and Coping with Illness apple spotify support educate advocate" },
   { title: "Contact", url: "contact.html", description: "Contact The Holistic Ecosystem for questions, podcast guest inquiries, collaboration, blog questions, and technical issues.", keywords: "contact email message form collaboration podcast guest inquiry" }
 ];
+
+
+
+

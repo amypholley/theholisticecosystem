@@ -1449,7 +1449,8 @@ p {
   margin-top: 22px;
 }
 
-.activity-list span {
+.activity-list span,
+.activity-list a {
   display: inline-flex;
   align-items: center;
   max-width: 100%;
@@ -1461,7 +1462,16 @@ p {
   color: var(--body);
   font-size: 0.95rem;
   font-weight: 700;
+  text-decoration: none;
   overflow-wrap: anywhere;
+}
+
+.activity-list a:hover,
+.activity-list a:focus-visible {
+  border-color: var(--accent);
+  background: var(--button);
+  color: var(--button-text);
+  outline: none;
 }
 
 .app-badges {
@@ -1964,7 +1974,8 @@ p {
     width: 100%;
   }
 
-  .activity-list span {
+  .activity-list span,
+  .activity-list a {
     width: 100%;
   }
 }
