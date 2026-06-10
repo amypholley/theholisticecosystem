@@ -610,6 +610,40 @@ p {
   margin-top: auto;
 }
 
+.affiliate-product-title-link {
+  color: var(--heading);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-weight: 800;
+  line-height: 1.25;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+
+.affiliate-product-title-link:hover,
+.affiliate-product-title-link:focus-visible {
+  color: var(--nav-text);
+  outline: none;
+}
+
+.game-collection-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hobby-feature-card {
+  width: min(100%, 520px);
+  min-height: 0;
+  margin: 24px auto 0;
+}
+
+.affiliate-footer-note {
+  margin: 24px auto 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(0.78rem, 1.1vw, 0.88rem);
+  line-height: 1.45;
+}
+
 .nutrient-card {
   align-items: flex-start;
   text-align: left;
@@ -1701,6 +1735,10 @@ p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .game-collection-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .az-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1813,6 +1851,10 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .game-collection-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .social-links {
     width: 100%;
   }
@@ -1844,6 +1886,10 @@ p {
   }
 
   .affiliate-product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-collection-grid {
     grid-template-columns: 1fr;
   }
 

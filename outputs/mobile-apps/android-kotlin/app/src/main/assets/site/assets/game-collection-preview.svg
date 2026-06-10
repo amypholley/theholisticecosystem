@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">All-in-one game collection</title><desc id="desc">Illustration of a multi-game table with several game pieces.</desc>
+  <rect width="640" height="480" fill="#F5F1F8"/><circle cx="320" cy="230" r="178" fill="#B7E4D7" opacity=".52"/>
+  <rect x="135" y="145" width="370" height="220" rx="30" fill="#fff" stroke="#234F3D" stroke-width="12"/>
+  <path d="M170 205h300M170 265h300M230 165v180M320 165v180M410 165v180" stroke="#7F9DB8" stroke-width="9" opacity=".72"/>
+  <circle cx="235" cy="208" r="24" fill="#7BAA8B"/><circle cx="405" cy="300" r="24" fill="#4E3A5A"/><rect x="293" y="238" width="54" height="54" rx="10" fill="#234F3D"/>
+</svg>

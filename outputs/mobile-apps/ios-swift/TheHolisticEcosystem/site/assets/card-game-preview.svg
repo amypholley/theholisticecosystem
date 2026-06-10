@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Card game</title><desc id="desc">Illustration of playing cards spread across a table.</desc>
+  <rect width="640" height="480" fill="#F5F1F8"/><circle cx="320" cy="240" r="175" fill="#B7E4D7" opacity=".5"/>
+  <g stroke="#234F3D" stroke-width="10"><rect x="165" y="130" width="170" height="245" rx="20" fill="#fff" transform="rotate(-15 250 252)"/><rect x="235" y="110" width="170" height="245" rx="20" fill="#fff"/><rect x="315" y="130" width="170" height="245" rx="20" fill="#fff" transform="rotate(15 400 252)"/></g>
+  <path d="M320 175c-38-50-95 12 0 88 95-76 38-138 0-88z" fill="#7BAA8B"/><circle cx="220" cy="205" r="30" fill="#7F9DB8"/><path d="M390 190l35 60h-70z" fill="#4E3A5A"/>
+</svg>
