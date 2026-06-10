@@ -631,12 +631,6 @@ p {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.hobby-feature-card {
-  width: min(100%, 520px);
-  min-height: 0;
-  margin: 24px auto 0;
-}
-
 .affiliate-footer-note {
   margin: 24px auto 0;
   color: rgba(255, 255, 255, 0.82);
@@ -1506,6 +1500,53 @@ p {
   background: var(--button);
   color: var(--button-text);
   outline: none;
+}
+
+.activity-list .hobby-list-card {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 230px;
+  padding: clamp(18px, 2.6vw, 26px);
+  border: 1px solid var(--soft-border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  color: inherit;
+  text-align: center;
+}
+
+.activity-list .hobby-list-card:hover,
+.activity-list .hobby-list-card:focus-visible {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.9);
+  color: inherit;
+}
+
+.hobby-list-card h2 {
+  margin: 0 0 12px;
+  color: var(--heading);
+}
+
+.hobby-list-card p {
+  margin: 0;
+}
+
+.activity-list .hobby-list-card .hobby-card-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 240px);
+  min-height: 48px;
+  margin-top: auto;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--button);
+  color: var(--button-text);
+  font-weight: 800;
 }
 
 .app-badges {
