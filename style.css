@@ -457,6 +457,64 @@ p {
   margin-top: auto;
 }
 
+/* Non-clickable information uses a quieter panel; linked cards remain navigation. */
+.content-panel {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(11px, 1.5vw, 16px);
+  border: 0;
+  border-left: 3px solid rgba(139, 111, 191, 0.42);
+  border-radius: 8px;
+  background: rgba(242, 236, 250, 0.46);
+  box-shadow: none;
+  color: inherit;
+  text-align: left;
+  overflow: visible;
+}
+
+.content-panel > * {
+  max-width: 100%;
+}
+
+.content-panel h2,
+.content-panel h3,
+.content-panel h4 {
+  width: 100%;
+  margin: 0 0 7px;
+  color: var(--accent-purple);
+  font-size: clamp(1.02rem, 1.5vw, 1.25rem);
+  line-height: 1.22;
+  text-align: left;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.content-panel p {
+  width: 100%;
+  margin: 0;
+  font-size: clamp(0.92rem, 1.08vw, 0.99rem);
+  line-height: 1.5;
+}
+
+.content-panel p + p {
+  margin-top: 8px;
+}
+
+.content-panel ul,
+.content-panel ol {
+  margin: 7px 0 0;
+  padding-left: 20px;
+}
+
+.content-panel:hover,
+.content-panel:focus-within {
+  border-left-color: var(--accent-purple);
+  box-shadow: none !important;
+  transform: none !important;
+}
+
 .protein-page,
 .resource-page {
   max-width: 1180px;
