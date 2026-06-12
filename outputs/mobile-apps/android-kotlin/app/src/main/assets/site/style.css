@@ -1497,6 +1497,265 @@ p {
   margin-top: 22px;
 }
 
+.hobby-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 24px;
+  margin-top: 20px;
+}
+
+.hobby-category {
+  padding: 14px 0 16px;
+  border-top: 2px solid var(--accent-purple-light);
+}
+
+.hobby-category h3 {
+  margin: 0;
+  color: var(--accent-purple);
+  font-size: clamp(1.08rem, 1.8vw, 1.35rem);
+}
+
+.hobby-category .activity-list {
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.hobbies-page .section {
+  padding-block: 57px;
+  margin-block: 67px;
+}
+
+.hobbies-page .resource-section {
+  margin-top: clamp(22px, 3.5vw, 36px);
+}
+
+.hobbies-page .sections-grid {
+  gap: clamp(13px, 1.7vw, 17px);
+  margin-top: 28px;
+}
+
+.hobbies-page .section-card {
+  min-height: clamp(190px, 20vw, 240px);
+  padding: clamp(13px, 1.7vw, 17px);
+  box-shadow: 0 3px 8px rgba(78, 58, 90, 0.06);
+}
+
+.hobbies-page .resource-section > h3 {
+  margin-top: clamp(20px, 2.8vw, 30px);
+}
+
+/* Deep resource pages use a quieter, denser reading layout. */
+.section:has(.resource-page) {
+  padding-block: 56px;
+  margin-block: 66px;
+}
+
+.resource-page.content-block {
+  padding: clamp(19px, 2.8vw, 36px);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(78, 58, 90, 0.08);
+}
+
+.resource-page .eyebrow {
+  margin-bottom: 6px;
+}
+
+.resource-page .breadcrumbs {
+  margin-bottom: 15px;
+}
+
+.resource-page h1 {
+  font-size: clamp(1.85rem, 5vw, 3.5rem);
+}
+
+.resource-page > p,
+.resource-page > .resource-note {
+  margin-top: 12px;
+}
+
+.resource-page > .resource-section {
+  margin-top: clamp(22px, 3.5vw, 36px);
+  padding-top: clamp(18px, 2.7vw, 28px);
+  border-top: 1px solid rgba(139, 111, 191, 0.2);
+}
+
+.resource-page > .resource-section:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.resource-page .resource-section > h2 {
+  padding-bottom: 6px;
+  border-bottom-width: 1px;
+  font-size: clamp(1.35rem, 2.6vw, 1.95rem);
+}
+
+.resource-page .resource-section > h3 {
+  margin-top: clamp(18px, 2.5vw, 27px);
+  font-size: clamp(1.08rem, 1.9vw, 1.42rem);
+}
+
+.resource-page .resource-section p {
+  margin-top: 11px;
+}
+
+.resource-page .sections-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 320px));
+  justify-content: center;
+  gap: clamp(10px, 1.35vw, 14px);
+  margin-top: 18px;
+}
+
+.resource-page .sections-grid > *,
+.resource-page .sections-grid > :last-child:nth-child(3n + 1),
+.resource-page .sections-grid > :last-child:nth-child(3n + 2),
+.resource-page .sections-grid > :last-child:nth-child(odd) {
+  grid-column: auto;
+  width: 100%;
+}
+
+.resource-page .section-card {
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: auto;
+  padding: clamp(10px, 1.25vw, 14px);
+  border: 0;
+  border-left: 3px solid rgba(139, 111, 191, 0.45);
+  border-radius: 8px;
+  background: rgba(242, 236, 250, 0.55);
+  box-shadow: none;
+  text-align: left;
+}
+
+.resource-page .section-card h2,
+.resource-page .section-card h3 {
+  margin-bottom: 7px;
+  font-size: clamp(1.02rem, 1.5vw, 1.25rem);
+  text-align: left;
+}
+
+.resource-page .section-card p {
+  margin: 0;
+  font-size: clamp(0.91rem, 1.08vw, 0.98rem);
+  line-height: 1.45;
+}
+
+.resource-page .section-card ul,
+.resource-page .section-card ol {
+  margin: 6px 0 0;
+  padding-left: 19px;
+}
+
+.resource-page .card-link {
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.resource-page .card-link:hover,
+.resource-page .card-link:focus-visible,
+.resource-page .section-card:hover,
+.resource-page .section-card:focus-within {
+  border-left-color: var(--accent-purple);
+  background: rgba(242, 236, 250, 0.9);
+  box-shadow: none;
+  transform: none;
+}
+
+.resource-page .section-card .button-link {
+  min-height: 40px;
+  margin-top: 12px;
+  padding: 7px 12px;
+  font-size: 0.9rem;
+}
+
+.resource-page .card-caption {
+  margin-bottom: 7px;
+  font-size: 0.92rem;
+}
+
+.resource-page .resource-note,
+.resource-page .quote,
+.resource-page .movement-summary,
+.resource-page .recovery-summary,
+.resource-page .affiliate-disclaimer {
+  padding: 10px 12px;
+  border-left-width: 4px;
+  border-radius: 9px;
+}
+
+.resource-page .quote,
+.resource-page .movement-summary,
+.resource-page .recovery-summary {
+  margin: 16px 0 18px;
+}
+
+.resource-page .protein-food-grid,
+.resource-page .resource-card-grid,
+.resource-page .affiliate-product-grid {
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.resource-page .protein-food-card,
+.resource-page .resource-card {
+  min-height: 118px;
+  padding: 10px 11px;
+  border-radius: 9px;
+  box-shadow: none;
+}
+
+.resource-page .protein-food-card:hover,
+.resource-page .protein-food-card:focus-within,
+.resource-page .resource-card:hover,
+.resource-page .resource-card:focus-within {
+  box-shadow: none;
+  transform: none;
+}
+
+.resource-page .affiliate-product-grid {
+  margin-top: 17px;
+}
+
+.resource-page .affiliate-product-card {
+  border-radius: 9px;
+  box-shadow: none;
+}
+
+.resource-page .affiliate-product-card:hover,
+.resource-page .affiliate-product-card:focus-within {
+  box-shadow: none;
+  transform: none;
+}
+
+.resource-page .affiliate-product-body {
+  padding: 10px 11px;
+}
+
+.resource-page .top-nav-buttons {
+  gap: 7px;
+  margin-top: 15px;
+}
+
+.resource-page .top-nav-buttons .button-link,
+.resource-page > .button-link {
+  min-height: 42px;
+  margin-top: 15px;
+  padding: 8px 14px;
+}
+
+.resource-page .resource-table-tools,
+.resource-page .resource-table-wrap {
+  margin-top: 13px;
+}
+
+.resource-page .resource-table th,
+.resource-page .resource-table td {
+  padding: 9px 11px;
+}
+
+.resource-page .content-divider {
+  margin-block: 28px;
+}
+
 .activity-list span,
 .activity-list a {
   display: inline-flex;
@@ -1937,6 +2196,31 @@ p {
   .social-links {
     width: 100%;
   }
+
+  .hobby-category-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hobbies-page .section {
+    padding-block: 40px;
+    margin-block: 44px;
+  }
+
+  .section:has(.resource-page) {
+    padding-block: 39px;
+    margin-block: 46px;
+  }
+
+  .resource-page.content-block {
+    padding: 17px;
+    border-radius: 14px;
+  }
+
+  .resource-page > .resource-section {
+    margin-top: 22px;
+    padding-top: 18px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1954,6 +2238,37 @@ p {
   .section-card {
     min-height: auto;
     padding: 15px;
+  }
+
+  .hobbies-page .sections-grid {
+    gap: 13px;
+    margin-top: 20px;
+  }
+
+  .hobbies-page .section-card {
+    padding: 13px;
+  }
+
+  .hobby-category {
+    padding-block: 12px;
+  }
+
+  .resource-page .sections-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin-top: 14px;
+  }
+
+  .resource-page .section-card {
+    padding: 10px 11px;
+  }
+
+  .resource-page .resource-section > h2 {
+    font-size: clamp(1.25rem, 6vw, 1.6rem);
+  }
+
+  .resource-page .resource-table {
+    min-width: 640px;
   }
 
   .section-card h2,
@@ -2185,5 +2500,250 @@ p {
 
   .social-links {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive stability: keep shared layouts fluid on narrow screens. */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+picture,
+svg,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+picture,
+svg,
+canvas {
+  height: auto;
+}
+
+iframe {
+  width: 100%;
+}
+
+button,
+input,
+select,
+textarea,
+table,
+pre,
+code {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea,
+a,
+th,
+td,
+li {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+pre,
+code {
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.nav-wrap,
+.section-inner,
+.footer-inner,
+.hero-copy,
+.content-block,
+.media-panel,
+.resource-page,
+.protein-page,
+.sections-grid,
+.resource-table-wrap {
+  max-width: 100%;
+}
+
+.hero-copy,
+.content-block,
+.media-panel,
+.section-card,
+.resource-card,
+.protein-food-card,
+.affiliate-product-card {
+  width: 100%;
+}
+
+.sections-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.resource-page .sections-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+.resource-page .sections-grid {
+  max-width: 1040px;
+}
+
+.protein-food-grid,
+.resource-card-grid,
+.affiliate-product-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  width: 100%;
+}
+
+.sections-grid > *,
+.protein-food-grid > *,
+.resource-card-grid > *,
+.affiliate-product-grid > *,
+.group-preview-grid > *,
+.hobby-category-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.resource-table-wrap {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.feature-list,
+.preview-form-grid,
+.group-preview-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+.community-page {
+  gap: clamp(28px, 6vw, 72px);
+}
+
+.preview-form-grid {
+  gap: clamp(20px, 4vw, 40px);
+}
+
+@media (max-width: 900px) {
+  .sections-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .nav-wrap,
+  .section-inner,
+  .footer-inner {
+    width: calc(100% - 24px);
+  }
+
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+    width: 100%;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  .nav-links li {
+    display: flex;
+    min-width: 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    min-height: 44px;
+    white-space: normal;
+  }
+
+  .protein-food-grid,
+  .resource-card-grid,
+  .affiliate-product-grid,
+  .group-preview-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  }
+
+  .button-link,
+  .activity-list a,
+  .podcast-link,
+  .social-links a,
+  .store-link,
+  button,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-wrap,
+  .section-inner,
+  .footer-inner {
+    width: calc(100% - 20px);
+  }
+
+  .nav-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sections-grid,
+  .resource-page .sections-grid,
+  .protein-food-grid,
+  .resource-card-grid,
+  .affiliate-product-grid,
+  .group-preview-grid,
+  .game-collection-grid,
+  .az-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-copy,
+  .content-block {
+    padding: 18px;
+  }
+
+  .resource-page.content-block {
+    padding: 15px;
+  }
+
+  .section-card,
+  .resource-page .section-card,
+  .protein-food-card,
+  .resource-card,
+  .affiliate-product-body {
+    padding: 12px;
+  }
+
+  .resource-table {
+    font-size: 0.88rem;
+  }
+
+  .resource-table th,
+  .resource-table td,
+  .resource-page .resource-table th,
+  .resource-page .resource-table td {
+    padding: 8px 9px;
+  }
+}
+
+@media (max-width: 390px) {
+  .nav-wrap,
+  .section-inner,
+  .footer-inner {
+    width: calc(100% - 16px);
+  }
+
+  .nav-links {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy,
+  .content-block,
+  .resource-page.content-block {
+    padding: 14px;
   }
 }
