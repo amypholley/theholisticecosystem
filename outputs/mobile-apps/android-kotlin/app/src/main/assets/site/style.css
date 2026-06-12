@@ -11,6 +11,9 @@
   --surface: #ffffff;
   --soft-border: rgba(78, 58, 90, 0.15);
   --shadow: 0 20px 50px rgba(78, 58, 90, 0.12);
+  --accent-purple: #6b4ea0;
+  --accent-purple-soft: #8b6fbf;
+  --accent-purple-light: #f2ecfa;
 }
 
 * {
@@ -256,13 +259,13 @@ main > .section:last-child {
 .breadcrumbs li + li::before {
   content: ">";
   margin-right: 6px;
-  color: var(--accent);
+  color: var(--accent-purple-soft);
   font-weight: 800;
 }
 
 .breadcrumbs a {
-  color: var(--nav-text);
-  text-decoration-color: var(--accent);
+  color: var(--accent-purple);
+  text-decoration-color: var(--accent-purple-soft);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   overflow-wrap: anywhere;
@@ -270,7 +273,7 @@ main > .section:last-child {
 
 .breadcrumbs a:hover,
 .breadcrumbs a:focus-visible {
-  color: var(--heading);
+  color: var(--nav-text);
   outline: none;
 }
 
@@ -376,6 +379,15 @@ p {
   align-items: stretch;
 }
 
+/* Keep incomplete three-card rows balanced on desktop. */
+.sections-grid > :last-child:nth-child(3n + 1) {
+  grid-column: 2;
+}
+
+.sections-grid > :last-child:nth-child(3n + 2) {
+  grid-column: 3;
+}
+
 .section-card {
   display: flex;
   flex-direction: column;
@@ -383,7 +395,7 @@ p {
   justify-content: flex-start;
   min-width: 0;
   min-height: clamp(220px, 24vw, 285px);
-  padding: clamp(18px, 2.6vw, 26px);
+  padding: clamp(15px, 2.1vw, 21px);
   border: 1px solid var(--soft-border);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.82);
@@ -405,6 +417,7 @@ p {
   overflow-wrap: anywhere;
   text-wrap: balance;
   hyphens: auto;
+  color: var(--accent-purple);
 }
 
 .section-card p {
@@ -418,7 +431,7 @@ p {
 
 .section-card .card-caption {
   margin: 0 0 12px;
-  color: var(--nav-text);
+  color: var(--accent-purple);
   font-size: clamp(0.94rem, 1.25vw, 1.02rem);
   font-style: italic;
   font-weight: 800;
@@ -433,8 +446,8 @@ p {
 
 .card-link:hover,
 .card-link:focus-visible {
-  border-color: var(--accent);
-  box-shadow: 0 12px 24px rgba(78, 58, 90, 0.12);
+  border-color: var(--accent-purple-soft);
+  box-shadow: 0 12px 24px rgba(107, 78, 160, 0.16);
   outline: none;
   transform: translateY(-2px);
 }
@@ -453,17 +466,19 @@ p {
   margin-top: clamp(32px, 5vw, 52px);
 }
 
-.resource-section h2 {
+.resource-section > h2 {
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-purple-light);
   font-size: clamp(1.45rem, 3vw, 2.25rem);
 }
 
-.resource-section h3 {
+.resource-section > h3 {
   margin-top: clamp(28px, 4vw, 42px);
   font-size: clamp(1.2rem, 2.2vw, 1.65rem);
 }
 
 .resource-note {
-  padding: 14px 16px;
+  padding: 11px 13px;
   border-left: 6px solid var(--accent);
   border-radius: 14px;
   background: rgba(123, 170, 139, 0.13);
@@ -474,7 +489,8 @@ p {
 .protein-food-grid,
 .resource-card-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 210px));
+  justify-content: center;
   gap: clamp(12px, 1.8vw, 18px);
   margin-top: 18px;
 }
@@ -486,7 +502,7 @@ p {
   justify-content: space-between;
   min-width: 0;
   min-height: 150px;
-  padding: clamp(14px, 1.8vw, 18px);
+  padding: clamp(11px, 1.45vw, 15px);
   border: 1px solid var(--soft-border);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.82);
@@ -499,14 +515,15 @@ p {
 .protein-food-card:focus-within,
 .resource-card:hover,
 .resource-card:focus-within {
-  box-shadow: 0 12px 24px rgba(78, 58, 90, 0.12);
+  border-color: var(--accent-purple-soft);
+  box-shadow: 0 12px 24px rgba(107, 78, 160, 0.16);
   transform: translateY(-2px);
 }
 
 .protein-food-card h4,
 .resource-card h4 {
   margin: 0;
-  color: var(--heading);
+  color: var(--accent-purple);
   font-size: clamp(1rem, 1.45vw, 1.16rem);
   line-height: 1.18;
   overflow-wrap: anywhere;
@@ -543,7 +560,7 @@ p {
 
 .affiliate-disclaimer {
   margin-top: 32px;
-  padding: clamp(16px, 2.4vw, 22px);
+  padding: clamp(13px, 1.9vw, 18px);
   border: 1px solid rgba(123, 170, 139, 0.28);
   border-radius: 18px;
   background: rgba(183, 228, 215, 0.26);
@@ -553,7 +570,8 @@ p {
 
 .affiliate-product-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 210px));
+  justify-content: center;
   gap: clamp(14px, 1.8vw, 18px);
   margin-top: 24px;
 }
@@ -574,8 +592,8 @@ p {
 
 .affiliate-product-card:hover,
 .affiliate-product-card:focus-within {
-  border-color: var(--accent);
-  box-shadow: 0 12px 24px rgba(78, 58, 90, 0.12);
+  border-color: var(--accent-purple-soft);
+  box-shadow: 0 12px 24px rgba(107, 78, 160, 0.16);
   transform: translateY(-2px);
 }
 
@@ -590,13 +608,14 @@ p {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: clamp(14px, 1.7vw, 18px);
+  padding: clamp(11px, 1.4vw, 15px);
 }
 
 .affiliate-product-card h3 {
   margin: 0;
   font-size: clamp(1rem, 1.35vw, 1.18rem);
   line-height: 1.18;
+  color: var(--accent-purple);
 }
 
 .affiliate-product-card p {
@@ -611,11 +630,11 @@ p {
 }
 
 .affiliate-product-title-link {
-  color: var(--heading);
+  color: var(--accent-purple);
   font-size: clamp(1rem, 1.35vw, 1.18rem);
   font-weight: 800;
   line-height: 1.25;
-  text-decoration-color: var(--accent);
+  text-decoration-color: var(--accent-purple-soft);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   overflow-wrap: anywhere;
@@ -945,7 +964,8 @@ p {
 
 .button-link:hover,
 .button-link:focus-visible {
-  background: var(--nav-text);
+  background: var(--accent-purple);
+  box-shadow: 0 8px 18px rgba(107, 78, 160, 0.2);
   transform: translateY(-1px);
   outline: none;
 }
@@ -1484,7 +1504,7 @@ p {
   max-width: 100%;
   min-height: 40px;
   padding: 8px 14px;
-  border: 1px solid rgba(127, 157, 184, 0.35);
+  border: 1px solid rgba(139, 111, 191, 0.32);
   border-radius: 999px;
   background: rgba(245, 241, 248, 0.85);
   color: var(--body);
@@ -1496,8 +1516,8 @@ p {
 
 .activity-list a:hover,
 .activity-list a:focus-visible {
-  border-color: var(--accent);
-  background: var(--button);
+  border-color: var(--accent-purple-soft);
+  background: var(--accent-purple);
   color: var(--button-text);
   outline: none;
 }
@@ -1767,13 +1787,23 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .sections-grid > * {
+    grid-column: auto;
+  }
+
+  .sections-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 420px);
+  }
+
   .protein-food-grid,
   .resource-card-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 210px));
   }
 
   .affiliate-product-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 210px));
   }
 
   .game-collection-grid {
@@ -1885,15 +1915,23 @@ p {
 
   .protein-food-grid,
   .resource-card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 210px));
+    justify-content: center;
   }
 
   .affiliate-product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 210px));
+    justify-content: center;
   }
 
   .game-collection-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .game-collection-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 360px);
   }
 
   .social-links {
@@ -1907,9 +1945,15 @@ p {
     gap: 18px;
   }
 
+  .sections-grid > *,
+  .sections-grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
+  }
+
   .section-card {
     min-height: auto;
-    padding: 18px;
+    padding: 15px;
   }
 
   .section-card h2,
@@ -1932,6 +1976,11 @@ p {
 
   .game-collection-grid {
     grid-template-columns: 1fr;
+  }
+
+  .game-collection-grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
   }
 
   .protein-food-card,
