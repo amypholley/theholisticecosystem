@@ -2810,6 +2810,147 @@ code {
   }
 }
 
+/* Calm grouped treatment for Personal Growth and Emotional Wellness details. */
+.calm-detail-page main .content-block {
+  max-width: 1080px;
+}
+
+.calm-detail-page main .content-block > h1 + p,
+.calm-detail-page main .content-block > h1 + p + p {
+  max-width: 800px;
+}
+
+.calm-detail-page .resource-section {
+  margin-top: clamp(32px, 5vw, 52px);
+  padding-top: clamp(24px, 3.5vw, 36px);
+}
+
+.calm-detail-page .resource-section > h2 {
+  margin-bottom: 10px;
+}
+
+.calm-detail-page .resource-section > h3 {
+  margin-top: 24px;
+  margin-bottom: 6px;
+  color: var(--heading);
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+}
+
+.calm-detail-page .resource-section > h3 + p {
+  max-width: 780px;
+  margin-top: 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent-purple-soft);
+  background: rgba(242, 236, 250, 0.62);
+}
+
+.calm-detail-page .sections-grid,
+.calm-detail-page.resource-page .sections-grid,
+.calm-detail-page .resource-page .sections-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+  margin-top: 18px;
+}
+
+.calm-detail-page .sections-grid .content-panel,
+.calm-detail-page .resource-card-grid .resource-card {
+  min-height: 0;
+  padding: 16px 18px;
+  border: 0;
+  border-left: 4px solid var(--header);
+  border-radius: 4px;
+  background: rgba(248, 246, 250, 0.9);
+  box-shadow: none;
+}
+
+.calm-detail-page .sections-grid .content-panel h2,
+.calm-detail-page .sections-grid .content-panel h3,
+.calm-detail-page .resource-card-grid .resource-card h4 {
+  margin-bottom: 7px;
+  color: var(--nav-text);
+  font-size: clamp(1.02rem, 1.5vw, 1.25rem);
+  line-height: 1.25;
+}
+
+.calm-detail-page .sections-grid .content-panel p,
+.calm-detail-page .resource-card-grid .resource-card p {
+  margin: 0;
+  line-height: 1.58;
+}
+
+.calm-detail-page .resource-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 12px;
+}
+
+.calm-detail-page .hobby-category-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.calm-detail-page .hobby-category {
+  padding: 18px;
+  border: 1px solid rgba(78, 58, 90, 0.1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: none;
+}
+
+.calm-detail-page .activity-list {
+  gap: 7px;
+}
+
+.calm-detail-page .activity-list span,
+.calm-detail-page .activity-list a {
+  padding: 7px 9px;
+  border: 1px solid rgba(78, 58, 90, 0.08);
+  box-shadow: none;
+}
+
+.calm-detail-page .gratitude-prompts-grid .content-panel,
+.calm-detail-page .balance-check-grid .content-panel {
+  border-left-color: var(--accent-purple-soft);
+  background: var(--accent-purple-light);
+}
+
+.calm-detail-page .gratitude-prompts-grid ol,
+.calm-detail-page .balance-check-grid ol {
+  margin-block: 0;
+  padding-left: 22px;
+}
+
+@media (max-width: 768px) {
+  .calm-detail-page .sections-grid,
+  .calm-detail-page.resource-page .sections-grid,
+  .calm-detail-page .resource-page .sections-grid,
+  .calm-detail-page .hobby-category-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .calm-detail-page .sections-grid > *,
+  .calm-detail-page .hobby-category-grid > * {
+    width: 100%;
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 430px) {
+  .calm-detail-page .resource-section {
+    margin-top: 28px;
+    padding-top: 20px;
+  }
+
+  .calm-detail-page .sections-grid .content-panel,
+  .calm-detail-page .resource-card-grid .resource-card,
+  .calm-detail-page .hobby-category {
+    padding: 14px;
+  }
+
+  .calm-detail-page .activity-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* Editorial layout for educational pages beyond the ecosystem map. */
 .educational-page {
   background: linear-gradient(180deg, #f8f6fa 0, var(--background) 420px);
