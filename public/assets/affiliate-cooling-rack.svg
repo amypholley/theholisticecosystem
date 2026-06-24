@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Cooling rack</title>
+  <desc id="desc">Simple illustration of a cooling rack.</desc>
+  <rect width="640" height="480" fill="#F5F1F8"/>
+  <circle cx="320" cy="240" r="170" fill="#B7E4D7" opacity="0.48"/>
+  <rect x="150" y="135" width="340" height="240" rx="24" fill="#FFFFFF" stroke="#234F3D" stroke-width="12"/>
+  <g stroke="#7F9DB8" stroke-width="10" stroke-linecap="round">
+    <path d="M195 155v200"/>
+    <path d="M250 155v200"/>
+    <path d="M305 155v200"/>
+    <path d="M360 155v200"/>
+    <path d="M415 155v200"/>
+    <path d="M170 185h300"/>
+    <path d="M170 240h300"/>
+    <path d="M170 295h300"/>
+    <path d="M170 350h300"/>
+  </g>
+</svg>

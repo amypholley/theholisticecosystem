@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact | The Holistic Ecosystem" />
+    <meta property="og:description" content="Use this form for questions, collaboration ideas, podcast inquiries, blog/resource questions, or technical issues." />
+    <meta property="og:image" content="https://www.theholisticecosystem.com/assets/images/logo.png" />
+    <meta property="og:url" content="https://www.theholisticecosystem.com/contact.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact | The Holistic Ecosystem" />
+    <meta name="twitter:description" content="Use this form for questions, collaboration ideas, podcast inquiries, blog/resource questions, or technical issues." />
+    <meta name="twitter:image" content="https://www.theholisticecosystem.com/assets/images/logo.png" />
+    <link rel="icon" href="/assets/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Contact | The Holistic Ecosystem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="educational-page">
+    <div class="crisis-link">
+      <a href="https://988lifeline.org/">Feeling down? Chat with 988</a>
+    </div>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="brand" href="/">
+          <img
+            class="site-logo"
+            src="assets/the-holistic-ecosystem-logo.png"
+            alt="The Holistic Ecosystem logo"
+          />
+          <span>The Holistic Ecosystem</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="/#home">Home</a></li>
+          <li><a href="theecosystem.html">The Ecosystem</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+        <form class="site-search header-search" action="search.html" method="get" role="search">
+          <label class="sr-only" for="site-search-header">Search the site</label>
+          <input id="site-search-header" type="search" name="q" placeholder="Search" />
+          <button type="submit">Search</button>
+        </form>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-inner feature-grid">
+          <article class="content-block">
+            <h1>Contact</h1>
+            <p>
+              Use this form for questions, collaboration ideas, podcast
+              inquiries, blog/resource questions, or technical issues.
+            </p>
+            <p class="form-disclaimer">
+              This contact form is not for emergencies. If you are in immediate
+              danger or crisis, contact emergency services or a crisis hotline.
+            </p>
+
+            <section class="sections-grid" aria-label="Contact options">
+              <article class="content-panel">
+                <h2>General Questions</h2>
+                <p>Reach out with questions about the website, resources, or wellness topics.</p>
+              </article>
+              <article class="content-panel">
+                <h2>Podcast and Blog</h2>
+                <p>Send podcast guest inquiries, blog questions, or resource ideas.</p>
+              </article>
+              <article class="content-panel">
+                <h2>Collaboration</h2>
+                <p>Share ideas for projects, partnerships, technical issues, or future opportunities.</p>
+              </article>
+            </section>
+
+            <form
+              class="site-form contact-form"
+              action="https://formspree.io/f/mojzvolv"
+              method="POST"
+            >
+              <label for="contact-name">Name</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required />
+
+              <label for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" required />
+
+              <label for="contact-subject">Subject</label>
+              <input id="contact-subject" name="subject" type="text" />
+
+              <label for="contact-reason">Reason for reaching out</label>
+              <select id="contact-reason" name="reason">
+                <option value="general-question">General Question</option>
+                <option value="podcast-guest">Podcast Guest Inquiry</option>
+                <option value="podcast-sponsor">Become a Podcast Sponsor</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="blog-resource-question">Blog/Resource Question</option>
+                <option value="technical-issue">Technical Issue</option>
+                <option value="other">Other</option>
+              </select>
+              <input
+                id="contact-reason-display"
+                name="reason_display"
+                type="hidden"
+                value="General Question"
+              />
+              <p id="sponsor-helper" hidden>
+                Interested in sponsoring Living and Coping with Illness? Tell
+                us about your company, product, service, target audience, and
+                sponsorship goals.
+              </p>
+
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="7" required></textarea>
+
+              <button class="button-link form-button" type="submit">Submit</button>
+              <p class="form-status" aria-live="polite"></p>
+            </form>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="podcast">
+          <img
+            class="podcast-logo"
+            src="assets/living-with-illness-logo.png"
+            alt="Living and Coping with Illness podcast logo"
+          />
+          <h2 class="podcast-title">Living and Coping with Illness</h2>
+          <p>Podcast now available on Apple and Spotify</p>
+          <a class="podcast-link" href="https://podcasts.apple.com/us/podcast/living-with-illness/id1866364922" target="_blank" rel="noopener noreferrer">
+            Listen on Apple Podcasts
+          </a>
+          <a class="podcast-link" href="https://open.spotify.com/show/2nnjxcA8mdLrF03p9VdhO8" target="_blank" rel="noopener noreferrer">
+            Listen on Spotify
+          </a>
+        </div>
+
+        <div class="social-links" aria-label="Social media links">
+          <a href="https://jamieth2032.substack.com/" aria-label="Substack">
+            <span class="social-icon">S</span>
+            <span>Substack</span>
+          </a>
+          <a
+            href="https://www.facebook.com/healthandhabitscoach/"
+            aria-label="Healthy Body, Healthy Minds on Facebook"
+          >
+            <span class="social-icon">f</span>
+            <span>Facebook</span>
+          </a>
+          <a
+            href="https://www.instagram.com/jamieh_mentalhealthcoach/"
+            aria-label="Instagram"
+          >
+            <span class="social-icon">IG</span>
+            <span>Instagram</span>
+          </a>
+          <a
+            href="https://www.threads.com/@jamieh_mentalhealthcoach"
+            aria-label="Threads"
+          >
+            <span class="social-icon">@</span>
+            <span>Threads</span>
+          </a>
+        </div>
+
+        <p class="disclaimer">
+          Disclaimer: This page is not controlled by a licensed professional,
+          uses words that may be considered offensive, and may have content not
+          appropriate for all ages. This website also uses affiliate marketing.
+        </p>
+      </div>
+    </footer>
+    <script>
+      const contactForm = document.querySelector(".contact-form");
+      const formStatus = document.querySelector(".form-status");
+      const contactReason = document.querySelector("#contact-reason");
+      const contactReasonDisplay = document.querySelector("#contact-reason-display");
+      const sponsorHelper = document.querySelector("#sponsor-helper");
+
+      const updateReasonDetails = () => {
+        if (!contactReason) return;
+
+        if (contactReasonDisplay) {
+          contactReasonDisplay.value =
+            contactReason.options[contactReason.selectedIndex].text;
+        }
+
+        if (sponsorHelper) {
+          sponsorHelper.hidden = contactReason.value !== "podcast-sponsor";
+        }
+      };
+
+      if (contactReason) {
+        contactReason.addEventListener("change", updateReasonDetails);
+        updateReasonDetails();
+      }
+
+      if (contactForm && formStatus) {
+        contactForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const formData = new FormData(contactForm);
+          formStatus.textContent = "Sending...";
+
+          try {
+            const response = await fetch(contactForm.action, {
+              method: "POST",
+              body: formData,
+              headers: {
+                Accept: "application/json",
+              },
+            });
+
+            if (response.ok) {
+              contactForm.reset();
+              updateReasonDetails();
+              formStatus.textContent = "Thank you. Your message has been sent.";
+            } else {
+              formStatus.textContent =
+                "Something went wrong. Please try again in a moment.";
+            }
+          } catch (error) {
+            formStatus.textContent =
+              "Something went wrong. Please check your connection and try again.";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
