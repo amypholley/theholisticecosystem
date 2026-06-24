@@ -1,0 +1,84 @@
+<main>
+      <section id="home" class="hero section">
+        <div class="section-inner hero-grid">
+          <div class="hero-copy">
+            <p class="quote">
+              "To ensure good health: eat lightly, breathe deeply, live
+              moderately, cultivate cheerfulness, and maintain an interest in
+              life." <span>-William Londen</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section home-about-section">
+        <div class="section-inner feature-grid">
+          <article class="content-block">
+            <h2>About Me</h2>
+            <img
+              class="about-photo"
+              src="assets/jamie-about-photo.jpg"
+              alt="Jamie smiling by the water"
+            />
+            <p>
+              Hi, I'm Jamie, the creator of The Holistic Ecosystem. My passion
+              is helping people build healthier, more fulfilling lives by
+              focusing on the connection between mind, body, and lifestyle.
+              Through my experiences, education, and personal journey, I've
+              learned that lasting growth comes from addressing all areas of
+              life rather than focusing on just one piece of the puzzle.
+            </p>
+            <p>
+              The Holistic Ecosystem was created as a place where people can
+              explore topics related to physical health, mental wellness,
+              emotional resilience, personal development, travel, and lifelong
+              learning. My goal is to provide practical information,
+              encouragement, and resources that help people take meaningful
+              steps toward becoming the best version of themselves.
+            </p>
+            <p>
+              Outside of my work, I enjoy traveling, exploring historical sites,
+              hiking with my dogs, discovering hidden small towns, relaxing by
+              the water, and planning new adventures. I love experiencing both
+              major cities and quiet destinations that many people overlook.
+              When I'm not traveling, you'll often find me writing, learning
+              about psychology and nutrition, working on creative projects,
+              reading, or spending time outdoors. Travel has become one of my
+              favorite ways to learn about different cultures and perspectives,
+              which inspired me to create
+              <a
+                href="https://www.facebook.com/globetrottertales4u"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Globetrotter Tales 4 U</a
+              >, where I share travel inspiration, destination ideas, and
+              adventures from around the world.
+            </p>
+            <p>
+              Whether you're here to improve your health, learn something new,
+              find travel inspiration, or simply connect with a community
+              focused on growth, I'm glad you're here. I hope The Holistic
+              Ecosystem becomes a valuable resource on your journey.
+            </p>
+          </article>
+
+          <article class="content-block" id="blog">
+            <p class="eyebrow">Blog</p>
+            <h2>Healthy Minds, Healthy Bodies Blog</h2>
+            <p>
+              Explore practical articles on mental health, physical wellness,
+              recovery, neurodivergence, self-care, nutrition, habits,
+              relationships, and everyday holistic living.
+            </p>
+            <a
+              class="button-link"
+              href="https://jamieth2032.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Blog</a
+            >
+          </article>
+        </div>
+      </section>
+
+    </main>
