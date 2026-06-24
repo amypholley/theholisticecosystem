@@ -1609,6 +1609,20 @@ p {
   object-fit: cover;
 }
 
+.merch-cta {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.merch-cta h2 {
+  margin: 0;
+  color: var(--heading);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+}
+
 @media (max-width: 768px) {
   .home-intro-layout {
     grid-template-columns: minmax(0, 1fr);
