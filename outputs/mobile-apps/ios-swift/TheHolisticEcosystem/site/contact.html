@@ -258,9 +258,7 @@
         }
 
         if (petPhoto) {
-          petPhoto.required =
-            selectedReason === "magazine-submission" ||
-            selectedReason === "pet-contest";
+          petPhoto.required = false;
         }
       };
 
@@ -275,16 +273,7 @@
 
           if (isSubmitting) return;
 
-          const selectedReason = contactReason ? contactReason.value : "";
           const uploadedFile = petPhoto && petPhoto.files.length ? petPhoto.files[0] : null;
-          const uploadIsRequired =
-            selectedReason === "magazine-submission" || selectedReason === "pet-contest";
-
-          if (uploadIsRequired && !uploadedFile) {
-            formStatus.textContent = "Please upload an image for this submission type.";
-            return;
-          }
-
           const uploadError = getUploadError(uploadedFile);
 
           if (uploadError) {

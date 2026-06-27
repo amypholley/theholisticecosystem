@@ -8,7 +8,6 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mojzvolv";
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ALLOWED_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp"]);
 const ALLOWED_MIME_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
-const UPLOAD_REQUIRED_REASONS = new Set(["magazine-submission", "pet-contest"]);
 
 function firstValue(value) {
   if (Array.isArray(value)) return value[0] || "";
@@ -106,16 +105,10 @@ module.exports = async function handler(req, res) {
     const name = firstValue(fields.name).trim();
     const email = firstValue(fields.email).trim();
     const message = firstValue(fields.message).trim();
-    const reason = firstValue(fields.reason).trim();
     const uploadError = validateUpload(uploadedFile);
 
     if (!name || !email || !message) {
       res.status(400).json({ error: "Please complete your name, email, and message." });
-      return;
-    }
-
-    if (UPLOAD_REQUIRED_REASONS.has(reason) && (!uploadedFile || !uploadedFile.size)) {
-      res.status(400).json({ error: "Please upload an image for this submission type." });
       return;
     }
 
@@ -133,7 +126,7 @@ module.exports = async function handler(req, res) {
         if (error.message === "BLOB_STORAGE_NOT_CONFIGURED") {
           res.status(500).json({
             error:
-              "Image upload storage is not configured yet. Please try again later or submit without an image.",
+              "Image upload storage is not configured yet. Add BLOB_READ_WRITE_TOKEN in Vercel Project Settings, then try the image upload again.",
           });
           return;
         }
