@@ -89,6 +89,7 @@
               class="site-form contact-form"
               action="https://formspree.io/f/mojzvolv"
               method="POST"
+              enctype="multipart/form-data"
             >
               <label for="contact-name">Name</label>
               <input id="contact-name" name="name" type="text" autocomplete="name" required />
@@ -104,6 +105,8 @@
                 <option value="general-question">General Question</option>
                 <option value="podcast-guest">Podcast Guest Inquiry</option>
                 <option value="podcast-sponsor">Become a Podcast Sponsor</option>
+                <option value="magazine-submission">Magazine Submission</option>
+                <option value="pet-contest">Pet Contest Submission</option>
                 <option value="collaboration">Collaboration</option>
                 <option value="blog-resource-question">Blog/Resource Question</option>
                 <option value="technical-issue">Technical Issue</option>
@@ -122,7 +125,19 @@
               </p>
 
               <label for="contact-message">Message</label>
+              <p id="magazine-helper" hidden>
+                Please state in your message which section of the magazine you
+                wish to enter or submit to.
+              </p>
               <textarea id="contact-message" name="message" rows="7" required></textarea>
+
+              <label for="pet-photo">Upload pet photo for contest</label>
+              <input
+                id="pet-photo"
+                name="pet_photo"
+                type="file"
+                accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+              />
 
               <button class="button-link form-button" type="submit">Submit</button>
               <p class="form-status" aria-live="polite"></p>
@@ -147,6 +162,9 @@
           </a>
           <a class="podcast-link" href="https://open.spotify.com/show/2nnjxcA8mdLrF03p9VdhO8" target="_blank" rel="noopener noreferrer">
             Listen on Spotify
+          </a>
+          <a class="podcast-link" href="https://iheart.com/podcast/336057171/" target="_blank" rel="noopener noreferrer">
+            Listen on iHeartRadio
           </a>
         </div>
 
@@ -191,9 +209,12 @@
       const contactReason = document.querySelector("#contact-reason");
       const contactReasonDisplay = document.querySelector("#contact-reason-display");
       const sponsorHelper = document.querySelector("#sponsor-helper");
+      const magazineHelper = document.querySelector("#magazine-helper");
+      const petPhoto = document.querySelector("#pet-photo");
 
       const updateReasonDetails = () => {
         if (!contactReason) return;
+        const selectedReason = contactReason.value;
 
         if (contactReasonDisplay) {
           contactReasonDisplay.value =
@@ -201,7 +222,19 @@
         }
 
         if (sponsorHelper) {
-          sponsorHelper.hidden = contactReason.value !== "podcast-sponsor";
+          sponsorHelper.hidden = selectedReason !== "podcast-sponsor";
+        }
+
+        if (magazineHelper) {
+          magazineHelper.hidden =
+            selectedReason !== "magazine-submission" &&
+            selectedReason !== "pet-contest";
+        }
+
+        if (petPhoto) {
+          petPhoto.required =
+            selectedReason === "magazine-submission" ||
+            selectedReason === "pet-contest";
         }
       };
 
