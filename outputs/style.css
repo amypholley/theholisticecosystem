@@ -1433,6 +1433,12 @@ p {
   transform: none;
 }
 
+.form-helper {
+  margin-top: -6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .form-disclaimer {
   padding: 16px 18px;
   border-left: 6px solid var(--accent);

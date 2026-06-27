@@ -87,7 +87,7 @@
 
             <form
               class="site-form contact-form"
-              action="https://formspree.io/f/mojzvolv"
+              action="/api/contact"
               method="POST"
               enctype="multipart/form-data"
             >
@@ -138,6 +138,9 @@
                 type="file"
                 accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
               />
+              <p class="form-helper">
+                Accepted image formats: JPG, PNG, or WebP. Maximum file size: 10 MB.
+              </p>
 
               <button class="button-link form-button" type="submit">Submit</button>
               <p class="form-status" aria-live="polite"></p>
@@ -211,6 +214,29 @@
       const sponsorHelper = document.querySelector("#sponsor-helper");
       const magazineHelper = document.querySelector("#magazine-helper");
       const petPhoto = document.querySelector("#pet-photo");
+      const submitButton = document.querySelector(".form-button");
+      const maxUploadSize = 10 * 1024 * 1024;
+      const allowedUploadTypes = ["image/jpeg", "image/png", "image/webp"];
+      const allowedUploadExtensions = [".jpg", ".jpeg", ".png", ".webp"];
+      let isSubmitting = false;
+
+      const getUploadError = (file) => {
+        if (!file) return "";
+        const fileName = file.name.toLowerCase();
+        const hasAllowedExtension = allowedUploadExtensions.some((extension) =>
+          fileName.endsWith(extension)
+        );
+
+        if (!allowedUploadTypes.includes(file.type) || !hasAllowedExtension) {
+          return "Please upload a JPG, PNG, or WebP image.";
+        }
+
+        if (file.size > maxUploadSize) {
+          return "Please upload an image smaller than 10 MB.";
+        }
+
+        return "";
+      };
 
       const updateReasonDetails = () => {
         if (!contactReason) return;
@@ -244,32 +270,84 @@
       }
 
       if (contactForm && formStatus) {
-        contactForm.addEventListener("submit", async (event) => {
+        contactForm.addEventListener("submit", (event) => {
           event.preventDefault();
+
+          if (isSubmitting) return;
+
+          const selectedReason = contactReason ? contactReason.value : "";
+          const uploadedFile = petPhoto && petPhoto.files.length ? petPhoto.files[0] : null;
+          const uploadIsRequired =
+            selectedReason === "magazine-submission" || selectedReason === "pet-contest";
+
+          if (uploadIsRequired && !uploadedFile) {
+            formStatus.textContent = "Please upload an image for this submission type.";
+            return;
+          }
+
+          const uploadError = getUploadError(uploadedFile);
+
+          if (uploadError) {
+            formStatus.textContent = uploadError;
+            return;
+          }
+
           const formData = new FormData(contactForm);
-          formStatus.textContent = "Sending...";
+          const request = new XMLHttpRequest();
 
-          try {
-            const response = await fetch(contactForm.action, {
-              method: "POST",
-              body: formData,
-              headers: {
-                Accept: "application/json",
-              },
-            });
+          isSubmitting = true;
+          if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
+          }
 
-            if (response.ok) {
+          formStatus.textContent = uploadedFile ? "Uploading..." : "Sending...";
+
+          request.open("POST", contactForm.action);
+          request.setRequestHeader("Accept", "application/json");
+
+          request.upload.addEventListener("progress", (progressEvent) => {
+            if (!uploadedFile || !progressEvent.lengthComputable) return;
+            const percentComplete = Math.round(
+              (progressEvent.loaded / progressEvent.total) * 100
+            );
+            formStatus.textContent = `Uploading ${percentComplete}%...`;
+          });
+
+          request.addEventListener("load", () => {
+            let response = {};
+
+            try {
+              response = JSON.parse(request.responseText || "{}");
+            } catch (error) {
+              response = {};
+            }
+
+            if (request.status >= 200 && request.status < 300) {
               contactForm.reset();
               updateReasonDetails();
               formStatus.textContent = "Thank you. Your message has been sent.";
             } else {
               formStatus.textContent =
+                response.error ||
                 "Something went wrong. Please try again in a moment.";
             }
-          } catch (error) {
+          });
+
+          request.addEventListener("error", () => {
             formStatus.textContent =
               "Something went wrong. Please check your connection and try again.";
-          }
+          });
+
+          request.addEventListener("loadend", () => {
+            isSubmitting = false;
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.textContent = "Submit";
+            }
+          });
+
+          request.send(formData);
         });
       }
     </script>
