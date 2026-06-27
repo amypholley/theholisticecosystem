@@ -1,5 +1,6 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
+const crypto = require("node:crypto");
 const formidableModule = require("formidable");
 
 const formidable = formidableModule.formidable || formidableModule;
@@ -60,6 +61,35 @@ async function removeTempFile(file) {
   await fs.unlink(file.filepath).catch(() => {});
 }
 
+function safeFileName(fileName) {
+  const extension = path.extname(fileName || "").toLowerCase();
+  const baseName = path
+    .basename(fileName || "pet-contest-photo", extension)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+
+  return `${baseName || "pet-contest-photo"}${extension || ".jpg"}`;
+}
+
+async function storeUploadedImage(file) {
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    throw new Error("BLOB_STORAGE_NOT_CONFIGURED");
+  }
+
+  const { put } = await import("@vercel/blob");
+  const fileBuffer = await fs.readFile(file.filepath);
+  const blobPath = `pet-contest/${crypto.randomUUID()}-${safeFileName(
+    file.originalFilename
+  )}`;
+
+  return put(blobPath, fileBuffer, {
+    access: "public",
+    contentType: file.mimetype,
+  });
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -94,33 +124,50 @@ module.exports = async function handler(req, res) {
       return;
     }
 
+    let uploadedImage = null;
+
+    if (uploadedFile && uploadedFile.size) {
+      try {
+        uploadedImage = await storeUploadedImage(uploadedFile);
+      } catch (error) {
+        if (error.message === "BLOB_STORAGE_NOT_CONFIGURED") {
+          res.status(500).json({
+            error:
+              "Image upload storage is not configured yet. Please try again later or submit without an image.",
+          });
+          return;
+        }
+
+        throw error;
+      }
+    }
+
     const outbound = new FormData();
-    const fieldNames = [
-      "name",
-      "email",
-      "subject",
-      "reason",
-      "reason_display",
-      "message",
-    ];
+    const fieldNames = ["name", "email", "subject", "reason", "reason_display"];
 
     fieldNames.forEach((fieldName) => {
       outbound.append(fieldName, firstValue(fields[fieldName]));
     });
 
+    const imageDetails = uploadedImage
+      ? [
+          "",
+          "Uploaded image for magazine/pet contest submission:",
+          uploadedImage.url,
+          `Original file name: ${uploadedFile.originalFilename || "pet-photo"}`,
+          `File type: ${uploadedFile.mimetype}`,
+          `File size: ${uploadedFile.size} bytes`,
+        ].join("\n")
+      : "";
+
+    outbound.append("message", `${message}${imageDetails}`);
     outbound.append("_subject", `Website contact: ${firstValue(fields.subject) || "New submission"}`);
 
-    if (uploadedFile && uploadedFile.size) {
-      const fileBuffer = await fs.readFile(uploadedFile.filepath);
-      const fileBlob = new Blob([fileBuffer], {
-        type: uploadedFile.mimetype || "application/octet-stream",
-      });
-
-      outbound.append(
-        "pet_photo",
-        fileBlob,
-        uploadedFile.originalFilename || "pet-photo"
-      );
+    if (uploadedImage) {
+      outbound.append("uploaded_image_url", uploadedImage.url);
+      outbound.append("uploaded_image_name", uploadedFile.originalFilename || "pet-photo");
+      outbound.append("uploaded_image_type", uploadedFile.mimetype);
+      outbound.append("uploaded_image_size", String(uploadedFile.size));
     }
 
     const formspreeResponse = await fetch(FORMSPREE_ENDPOINT, {
