@@ -1,6 +1,5 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
-const crypto = require("node:crypto");
 const formidableModule = require("formidable");
 
 const formidable = formidableModule.formidable || formidableModule;
@@ -73,18 +72,13 @@ function safeFileName(fileName) {
 }
 
 async function storeUploadedImage(file) {
-  if (!process.env.BLOB_READ_WRITE_TOKEN) {
-    throw new Error("BLOB_STORAGE_NOT_CONFIGURED");
-  }
-
   const { put } = await import("@vercel/blob");
   const fileBuffer = await fs.readFile(file.filepath);
-  const blobPath = `pet-contest/${crypto.randomUUID()}-${safeFileName(
-    file.originalFilename
-  )}`;
+  const blobPath = `pet-contest/${safeFileName(file.originalFilename)}`;
 
   return put(blobPath, fileBuffer, {
     access: "public",
+    addRandomSuffix: true,
     contentType: file.mimetype,
   });
 }
@@ -123,10 +117,19 @@ module.exports = async function handler(req, res) {
       try {
         uploadedImage = await storeUploadedImage(uploadedFile);
       } catch (error) {
-        if (error.message === "BLOB_STORAGE_NOT_CONFIGURED") {
+        const errorMessage = String(error && error.message ? error.message : "");
+        const isBlobAuthError =
+          errorMessage.includes("BLOB_READ_WRITE_TOKEN") ||
+          errorMessage.includes("BLOB_STORE_ID") ||
+          errorMessage.includes("VERCEL_OIDC_TOKEN") ||
+          errorMessage.toLowerCase().includes("token") ||
+          errorMessage.toLowerCase().includes("credential") ||
+          errorMessage.toLowerCase().includes("unauthorized");
+
+        if (isBlobAuthError) {
           res.status(500).json({
             error:
-              "Image upload storage is not configured yet. Add BLOB_READ_WRITE_TOKEN in Vercel Project Settings, then try the image upload again.",
+              "Image upload storage is not connected to this deployment yet. In Vercel, connect the Blob store to this project and make sure BLOB_STORE_ID is available for Production.",
           });
           return;
         }
