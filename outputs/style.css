@@ -555,6 +555,56 @@ p {
   font-weight: 800;
 }
 
+.resource-library-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.8vw, 18px);
+  margin-top: 18px;
+}
+
+.resource-type-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: var(--accent-purple-light);
+  color: var(--accent-purple);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.resources-library-page .content-panel h4 {
+  margin: 10px 0 6px;
+  color: var(--heading);
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+}
+
+.resources-library-page .content-panel a:not(.button-link) {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent-purple);
+  font-weight: 800;
+}
+
+.newsletter-section {
+  max-width: 880px;
+}
+
+@media (max-width: 900px) {
+  .resource-library-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .resource-library-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .protein-food-grid,
 .resource-card-grid {
   display: grid;
