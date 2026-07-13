@@ -1020,6 +1020,12 @@ p {
   white-space: normal;
 }
 
+.search-button {
+  white-space: nowrap;
+  min-width: 90px;
+  padding: 12px 20px;
+}
+
 .site-search input:focus,
 .site-search button:focus-visible {
   outline: 3px solid rgba(123, 170, 139, 0.45);

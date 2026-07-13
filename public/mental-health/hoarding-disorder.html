@@ -32,7 +32,7 @@
         <form class="site-search header-search" action="../search" method="get" role="search">
           <label class="sr-only" for="site-search-header">Search the site</label>
           <input id="site-search-header" type="search" name="q" placeholder="Search" />
-          <button type="submit">Search</button>
+          <button class="search-button" type="submit">Search</button>
         </form>
       </nav>
     </header>
@@ -61,7 +61,16 @@
 
         <section class="resource-section" aria-labelledby="resources">
           <h2 id="resources">Resources</h2>
-          <p class="resource-note">Helpful resources, support links, worksheets, and learning tools will be added here soon.</p>
+          <div class="sections-grid">
+            <article class="section-card">
+              <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--soft-border); border-radius: 12px; background: #000;">
+                <iframe src="https://www.youtube.com/embed/01Vn6Jhb0wU" title="Hoarding Disorder Educational Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+              </div>
+              <h3>Hoarding Disorder Educational Video</h3>
+              <p>This educational resource explains Hoarding Disorder, including symptoms, causes, diagnosis, treatment, and recovery strategies.</p>
+              <a class="button-link" href="https://youtu.be/01Vn6Jhb0wU?si=nZyT3CaeyMM8Nulu" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+            </article>
+          </div>
         </section>
 
         <section class="resource-section" aria-labelledby="coming-soon">
