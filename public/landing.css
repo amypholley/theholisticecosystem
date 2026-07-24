@@ -1,0 +1,22 @@
+:root { color-scheme: light; --ink: #283d36; --muted: #526a61; --sage-dark: #3d6950; --cream: #fbf8f0; }
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; }
+body { font-family: "Nunito", system-ui, sans-serif; color: var(--ink); background: var(--cream); }
+.landing-hero { position: relative; display: grid; min-height: 100vh; min-height: 100svh; place-items: center; overflow: hidden; padding: clamp(28px, 6vw, 72px) 20px; background: radial-gradient(circle at 50% 18%, rgba(255,255,255,.95), transparent 34%), linear-gradient(145deg, #f7f2e8 0%, #edf5ee 48%, #eee7f6 100%); isolation: isolate; }
+.landing-glow { position: absolute; z-index: -1; width: min(56vw, 660px); aspect-ratio: 1; border-radius: 50%; filter: blur(8px); opacity: .55; }
+.landing-glow-one { top: -28%; right: -10%; background: rgba(173,207,182,.62); }
+.landing-glow-two { bottom: -34%; left: -12%; background: rgba(203,185,224,.58); }
+.landing-content { width: min(760px, 100%); text-align: center; }
+.landing-logo { display: block; width: clamp(118px, 18vw, 170px); height: auto; margin: 0 auto 22px; filter: drop-shadow(0 14px 24px rgba(46,73,61,.12)); }
+.landing-eyebrow { margin: 0 0 8px; color: var(--sage-dark); font-size: clamp(.82rem, 1.8vw, 1rem); font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+h1 { margin: 0; font-size: clamp(2.45rem, 7vw, 5.4rem); line-height: .98; letter-spacing: -.045em; text-wrap: balance; }
+.landing-introduction { max-width: 640px; margin: clamp(22px, 4vw, 32px) auto 0; color: var(--muted); font-size: clamp(1.05rem, 2.2vw, 1.3rem); line-height: 1.65; text-wrap: balance; }
+.landing-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: clamp(30px, 5vw, 42px); }
+.landing-button { display: inline-flex; min-height: 56px; align-items: center; justify-content: center; border: 2px solid var(--sage-dark); border-radius: 999px; padding: 14px 26px; font-size: 1.05rem; font-weight: 800; line-height: 1; text-decoration: none; white-space: nowrap; transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease; }
+.landing-button:hover { transform: translateY(-2px); }
+.landing-button:focus-visible { outline: 4px solid rgba(61,105,80,.28); outline-offset: 4px; }
+.landing-button-primary { min-width: min(280px, 100%); color: #fff; background: var(--sage-dark); box-shadow: 0 14px 30px rgba(45,80,60,.2); }
+.landing-button-primary:hover { box-shadow: 0 18px 34px rgba(45,80,60,.28); }
+.landing-button-secondary { color: var(--sage-dark); background: rgba(255,255,255,.48); }
+@media (max-width: 520px) { .landing-hero { padding-inline: 18px; } .landing-actions { display: grid; } .landing-button { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .landing-button { transition: none; } }
