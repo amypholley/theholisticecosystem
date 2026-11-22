@@ -36,7 +36,14 @@
     matches.forEach((page) => {
       const article = document.createElement("article");
       article.className = "search-result";
-      article.innerHTML = `<h2>${page.title}</h2><p>${page.description}</p><a href="${page.url}">Open page</a>`;
+      const heading = document.createElement("h2");
+      heading.textContent = page.title;
+      const description = document.createElement("p");
+      description.textContent = page.description;
+      const link = document.createElement("a");
+      link.href = page.url;
+      link.textContent = page.url.startsWith("/blog/") ? "Read more" : "Open page";
+      article.append(heading, description, link);
       results.appendChild(article);
     });
   }

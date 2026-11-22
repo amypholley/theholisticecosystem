@@ -1,0 +1,149 @@
+.blog-enabled-header .nav-wrap,
+.blog-navigation {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.blog-enabled-header .nav-wrap {
+  flex-wrap: nowrap;
+  align-items: center;
+  min-height: 0;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.blog-enabled-header .brand {
+  width: auto;
+  min-width: 0;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+}
+
+.blog-enabled-header .brand-title-main { font-size: inherit; }
+.blog-enabled-header .nav-links { flex-wrap: nowrap; gap: 4px; }
+.blog-enabled-header .nav-links a { white-space: nowrap; color: var(--heading); }
+
+.blog-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 7px 0;
+  border-top: 1px solid #234f3d30;
+}
+
+.blog-links, .health-topics ul, .blog-topic-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-links, .blog-topic-links, .post-share {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.blog-links a, .health-topics summary, .navigation-toggle,
+.blog-topic-links a, .post-share a, .post-share button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: #e8f7f1;
+  color: var(--heading);
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.blog-enabled-header .nav-links a:hover,
+.blog-enabled-header .nav-links a:focus-visible,
+.blog-enabled-header .nav-links a.active,
+.blog-links a:hover, .blog-links [aria-current="page"],
+.health-topics summary:hover, .blog-topic-links a:hover,
+.post-share a:hover, .post-share button:hover {
+  background: var(--button);
+  color: var(--button-text);
+}
+
+.health-menu { display: flex; position: relative; }
+.health-menu > a { border-radius: 999px 0 0 999px; }
+.health-topics summary { border-radius: 0 999px 999px 0; padding-inline: 10px; }
+.health-topics summary::-webkit-details-marker { display: none; }
+.health-topics summary::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  transform: translateY(-2px) rotate(45deg);
+}
+.health-topics[open] summary::before { transform: translateY(2px) rotate(225deg); }
+.health-topics ul {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: max-content;
+  padding: 6px;
+  border: 1px solid #abcfc0;
+  border-radius: 14px;
+  background: #f4fbf7;
+  box-shadow: var(--shadow);
+}
+.health-topics a { display: flex; background: transparent; }
+
+.blog-navigation .header-search {
+  flex: 0 1 245px;
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 0 auto;
+  flex-direction: row;
+  gap: 5px;
+}
+.blog-navigation .header-search input { min-width: 0; width: 100%; }
+.blog-navigation .header-search button { width: auto; }
+
+.blog-enabled-header .navigation-toggle,
+.post-share button[hidden] { display: none; }
+
+.blog-content { max-width: 850px; overflow-wrap: anywhere; }
+.blog-topic-links { margin-block: 1rem; }
+.post-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.post-card { border: 1px solid #c5e1d4; border-radius: 16px; padding: 1rem 1.25rem; }
+.post-card h2 { margin: 0; }
+.post-details { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: .95rem; }
+.post-tag { padding: 3px 10px; border-radius: 999px; background: #e8f7f1; color: var(--heading); font-weight: 700; }
+.post-breadcrumb { margin-bottom: 1rem; }
+.post-cover, .post-body img { max-width: 100%; height: auto; border-radius: 12px; }
+.post-body pre, .post-body table { display: block; max-width: 100%; overflow-x: auto; }
+.post-share { border-top: 1px solid #c5e1d4; margin-top: 2rem; padding-top: 1rem; }
+.post-share input { width: min(100%, 28rem); }
+
+@media (max-width: 900px) {
+  .blog-enabled-header { position: static; }
+  .blog-enabled-header .nav-wrap { flex-wrap: wrap; }
+  .blog-enabled-header .brand { flex: 1; }
+  .blog-enabled-header .nav-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .blog-enabled-header .nav-links li, .blog-enabled-header .nav-links a { width: auto; }
+  .blog-enabled-header .navigation-toggle:not([hidden]) { display: inline-flex; }
+  .blog-enabled-header .navigation-toggle[aria-expanded="false"]:not([hidden]) + ul { display: none; }
+  .blog-links { order: 1; width: 100%; }
+  .blog-navigation .header-search { flex: 0 1 200px; }
+}
+
+@media (max-width: 375px) {
+  .blog-navigation .header-search { flex: 1 1 140px; }
+}

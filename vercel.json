@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "redirects": [
     {
       "source": "/home",
@@ -9,6 +11,17 @@
       "source": "/home/",
       "destination": "/wellnessapp",
       "statusCode": 301
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/blog",
+      "permanent": true
     }
+  ],
+  "rewrites": [
+    {"source": "/blog", "destination": "/blog/index.html"},
+    {"source": "/blog/topics/:section/:category", "destination": "/blog/topics/:section/:category/index.html"},
+    {"source": "/blog/topics/:section", "destination": "/blog/topics/:section/index.html"},
+    {"source": "/blog/:slug", "destination": "/blog/:slug/index.html"}
   ]
 }

@@ -2,8 +2,15 @@
   "name": "the-holistic-ecosystem",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "build": "node tools/build-site.js"
+  },
   "dependencies": {
     "@vercel/blob": "latest",
     "formidable": "^3.5.2"
+  },
+  "devDependencies": {
+    "gray-matter": "4.0.3",
+    "markdown-it": "14.1.1"
   }
 }

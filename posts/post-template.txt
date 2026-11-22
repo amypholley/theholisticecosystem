@@ -1,0 +1,11 @@
+---
+title: "Your post title"
+date: "2026-11-21"
+description: "A short summary for the listing and social preview."
+section: "Health"
+category: "Mental & Emotional"
+# image: "/assets/example.jpg"
+---
+
+Write the article in Markdown. Start section headings at level 2 because the
+page uses the post title as its level 1 heading.
