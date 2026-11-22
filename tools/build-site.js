@@ -52,7 +52,10 @@ function navigation(activeSection, activeTopic) {
   }).join("");
   return `<nav class="blog-navigation" aria-label="Blog navigation">
     <button class="navigation-toggle" type="button" aria-expanded="false" aria-controls="blog-links" hidden>Blog topics</button>
-    <ul class="blog-links" id="blog-links">${links}</ul>
+    <div class="blog-links-group" id="blog-links">
+      <span class="blog-links-label">Blogs:</span>
+      <ul class="blog-links">${links}</ul>
+    </div>
     <form class="site-search header-search" action="/search.html" method="get" role="search">
       <label class="sr-only" for="site-search-header">Search the site</label>
       <input id="site-search-header" type="search" name="q" placeholder="Search" required>

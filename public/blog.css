@@ -38,12 +38,15 @@
   list-style: none;
 }
 
-.blog-links, .blog-topic-links, .post-share {
+.blog-links-group, .blog-links, .blog-topic-links, .post-share {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
 }
+
+.blog-links-group { flex-wrap: nowrap; gap: 10px; }
+.blog-links-label { color: var(--heading); font-weight: 800; }
 
 .blog-links a, .health-topics summary, .navigation-toggle,
 .blog-topic-links a, .post-share a, .post-share button {
@@ -139,8 +142,9 @@
   }
   .blog-enabled-header .nav-links li, .blog-enabled-header .nav-links a { width: auto; }
   .blog-enabled-header .navigation-toggle:not([hidden]) { display: inline-flex; }
-  .blog-enabled-header .navigation-toggle[aria-expanded="false"]:not([hidden]) + ul { display: none; }
-  .blog-links { order: 1; width: 100%; }
+  .blog-enabled-header .navigation-toggle[aria-expanded="false"]:not([hidden]) + :is(ul, .blog-links-group) { display: none; }
+  .blog-links-group { order: 1; width: 100%; align-items: flex-start; }
+  .blog-links-label { padding-block: 8px; }
   .blog-navigation .header-search { flex: 0 1 200px; }
 }
 
