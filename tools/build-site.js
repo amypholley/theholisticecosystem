@@ -3,7 +3,7 @@ const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
 const output = path.join(root, "dist");
-const origin = "https://www.theholisticecosystem.com";
+const origin = "https://theholisticecosystem.com";
 const brand = "The Holistic Ecosystem";
 const sections = ["Health", "Finance", "Travel", "Hobby & Lifestyle", "Cooking"];
 const healthTopics = ["Physical", "Mental & Emotional", "Spiritual", "Purpose", "Social Connections"];
@@ -22,10 +22,13 @@ const matter = postFiles.length ? require("gray-matter") : null;
 const markdown = postFiles.length ? require("markdown-it")() : null;
 const posts = postFiles.map((file) => {
   const { data, content } = matter(fs.readFileSync(path.join(root, "posts", file), "utf8"));
-  const { title, description, section, category } = data;
+  const { title, description, socialDescription = description, author = "Jamie",
+    section, category, tags = [], imageAlt = "" } = data;
   const date = data.date instanceof Date ? data.date.toISOString().slice(0, 10) : data.date;
   const dateValue = new Date(date);
-  if (![title, description, category].every((value) => typeof value === "string" && value.trim()) ||
+  if (![title, description, socialDescription, author, category].every((value) => typeof value === "string" && value.trim()) ||
+      !Array.isArray(tags) || !tags.every((tag) => typeof tag === "string" && tag.trim()) ||
+      typeof imageAlt !== "string" ||
       !sections.includes(section) || (section === "Health" && !healthTopics.includes(category)) ||
       !/^\d{4}-\d{2}-\d{2}$/.test(date) || !Number.isFinite(dateValue.getTime()) ||
       dateValue.toISOString().slice(0, 10) !== date || !content.trim()) {
@@ -36,7 +39,8 @@ const posts = postFiles.map((file) => {
   usedSlugs.add(slug);
   const image = new URL(data.image || "/assets/images/logo.png", origin);
   if (!["https:", "http:"].includes(image.protocol)) throw new Error(file + ": invalid image URL");
-  return { title, description, date, section, category, image: image.href,
+  return { title, description, socialDescription, author, date, section, category,
+    tags: [...new Set(tags.map((tag) => tag.trim()))], imageAlt, image: image.href,
     hasImage: Boolean(data.image), url: "/blog/" + encodeURIComponent(slug), slug, content };
 }).sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 
@@ -83,15 +87,18 @@ const header = template.match(/<div class="crisis-link">[\s\S]*?<\/header>/)[0]
   .replace(/(href|src)="(?:\.\/)?(assets\/[^"]+|[a-z]+\.html)"/g, '$1="/$2"');
 const footer = template.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)[0];
 
-function page({ title, description, url, image = origin + "/assets/images/logo.png", date, section, topic, body }) {
+function page({ title, description, socialDescription = description, url, image = origin + "/assets/images/logo.png",
+  imageAlt, date, author, tags = [], section, topic, body }) {
   const fullTitle = title + " | " + brand;
   const canonical = origin + url;
   const metadata = [
     ["description", description], ["og:type", date ? "article" : "website"],
-    ["og:title", title], ["og:description", description], ["og:image", image],
+    ["og:title", title], ["og:description", socialDescription], ["og:image", image],
     ["og:url", canonical], ["twitter:card", "summary_large_image"],
-    ["twitter:title", title], ["twitter:description", description], ["twitter:image", image],
-    ...(date ? [["article:published_time", date + "T00:00:00Z"]] : []),
+    ["twitter:title", title], ["twitter:description", socialDescription], ["twitter:image", image],
+    ...(imageAlt ? [["og:image:alt", imageAlt], ["twitter:image:alt", imageAlt]] : []),
+    ...(date ? [["article:published_time", date + "T00:00:00Z"], ["article:section", section],
+      ["author", author], ...tags.map((tag) => ["article:tag", tag])] : []),
   ].map(([key, value]) => `<meta ${key.startsWith("og:") || key.startsWith("article:") ? "property" : "name"}="${key}" content="${escape(value)}">`).join("\n");
   return updateHeader(`<!doctype html>
 <html lang="en">
@@ -107,7 +114,7 @@ ${metadata}
 </head>
 <body class="educational-page blog-page">
 ${header}
-<main class="section"><div class="section-inner content-block page-block blog-content">${body}</div></main>
+<main class="section ${date ? "blog-article-shell" : "blog-index-shell"}"><div class="blog-content">${body}</div></main>
 ${footer}
 </body>
 </html>
@@ -122,7 +129,9 @@ function writePage(route, html) {
 
 function postDetails(post) {
   return `<p class="post-details"><time datetime="${post.date}">${dateFormat.format(new Date(post.date))}</time>
-    <span class="post-tag">${escape(post.category)}</span></p>`;
+    <span aria-hidden="true">·</span><span>${escape(post.author)}</span></p>
+    <ul class="post-tags" aria-label="Post topics">${[...new Set([post.category, ...post.tags])].map((tag) =>
+      `<li class="post-tag">${escape(tag)}</li>`).join("")}</ul>`;
 }
 
 function listing(title, url, matchingPosts, section, topic) {
@@ -130,15 +139,25 @@ function listing(title, url, matchingPosts, section, topic) {
     "Explore health, finance, travel, hobbies and everyday living, and cooking.";
   const topicLinks = section === "Health" && !topic
     ? `<ul class="blog-topic-links">${healthTopics.map((name) => `<li><a href="${topicUrl(name)}">${escape(name)}</a></li>`).join("")}</ul>` : "";
-  const cards = matchingPosts.map((post) => `<article class="post-card">
-  <h2><a href="${post.url}">${escape(post.title)}</a></h2>
+  const cards = matchingPosts.map((post) => `<article class="post-card${post.hasImage ? "" : " post-card-text"}">
+  ${post.hasImage ? `<a class="post-card-cover" href="${post.url}" aria-label="Read ${escape(post.title)}">
+    <img src="${escape(post.image)}" alt="${escape(post.imageAlt)}" loading="lazy" decoding="async"></a>` : ""}
   ${postDetails(post)}
+  <h2><a href="${post.url}">${escape(post.title)}</a></h2>
   <p>${escape(post.description)}</p>
   <a href="${post.url}" aria-label="Read more about ${escape(post.title)}">Read more</a>
   </article>`).join("");
   writePage(url, page({ title, description, url, section, topic,
-    body: `<h1>${escape(title)}</h1><p>${escape(description)}</p>${topicLinks}
-      ${cards ? `<div class="post-list">${cards}</div>` : "<p>No posts have been published here yet.</p>"}` }));
+    body: `<header class="blog-intro">${section ? '<a href="/blog">All blogs</a>' : ""}
+      <h1>${escape(title)}</h1><p>${escape(description)}</p>${topicLinks}</header>
+      <div class="blog-index-layout">
+        ${cards ? `<div class="post-list">${cards}</div>` : '<p class="blog-empty">No posts have been published here yet.</p>'}
+        <aside class="blog-newsletter">
+          <h2>Healthy Minds, Healthy Bodies</h2>
+          <p>Jamie’s newsletter on mental health and everyday wellness.</p>
+          <a href="https://jamieth2032.substack.com/">Visit the newsletter</a>
+        </aside>
+      </div>` }));
 }
 
 function shareLinks(post) {
@@ -182,14 +201,15 @@ for (const post of posts) {
     ${post.section === "Health" ? `/ <a href="${topicUrl(post.category)}">${escape(post.category)}</a>` : ""}</nav>
     <article class="blog-article">
     <header><h1>${escape(post.title)}</h1>${postDetails(post)}</header>
-    ${post.hasImage ? `<img class="post-cover" src="${escape(post.image)}" alt="">` : ""}
+    <p class="post-deck">${escape(post.description)}</p>
+    ${post.hasImage ? `<img class="post-cover" src="${escape(post.image)}" alt="${escape(post.imageAlt)}">` : ""}
     <div class="post-body">${markdown.render(post.content)}</div>
     </article>${shareLinks(post)}`;
   writePage("/blog/" + post.slug, page({ ...post, body }));
 }
 
 const searchData = path.join(output, "search-data.js");
-const searchPosts = posts.map(({ title, description, section, category, url }) =>
-  ({ title, description, keywords: section + " " + category, url }));
+const searchPosts = posts.map(({ title, description, section, category, tags, url }) =>
+  ({ title, description, keywords: [section, category, ...tags].join(" "), url }));
 fs.appendFileSync(searchData, "\nwindow.SEARCH_INDEX.push(..." + JSON.stringify(searchPosts) + ");\n");
 console.log(`Built 11 blog listings and ${posts.length} posts.`);

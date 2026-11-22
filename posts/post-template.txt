@@ -1,10 +1,14 @@
 ---
 title: "Your post title"
 date: "2026-11-21"
-description: "A short summary for the listing and social preview."
+description: "A short summary for the blog listing."
+socialDescription: "A short description for social media previews."
+author: "Jamie"
 section: "Health"
 category: "Mental & Emotional"
+tags: ["Anxiety", "Coping Skills"]
 # image: "/assets/example.jpg"
+# imageAlt: "Describe any meaningful information in the cover image."
 ---
 
 Write the article in Markdown. Start section headings at level 2 because the

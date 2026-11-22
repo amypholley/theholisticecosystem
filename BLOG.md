@@ -1,9 +1,12 @@
 # Publishing a post
 
 Copy [post-template.txt](posts/post-template.txt) into `posts/` with a `.md`
-extension. Fill out the title, publication date (YYYY-MM-DD), short description,
-section, category, and Markdown body. The image is optional. Use a public
-site path such as `/assets/post-photo.jpg` or an absolute HTTPS URL.
+extension. Fill out the title, publication date (YYYY-MM-DD), listing description,
+section, category, and Markdown body. Add an optional `socialDescription` for
+social previews, `tags` as a list of topics, and `author` (defaults to Jamie).
+The listing description is used in social previews when `socialDescription`
+is omitted. For a cover image, use a path such as `/assets/post-photo.jpg` or an
+absolute HTTPS URL, and include `imageAlt` if the cover conveys information.
 
 | Section | Category |
 | --- | --- |
